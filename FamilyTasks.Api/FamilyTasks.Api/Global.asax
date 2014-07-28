@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="FamilyTasks.Api.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="FamilyTasks.Api.WebApiApplication" Language="C#" %>

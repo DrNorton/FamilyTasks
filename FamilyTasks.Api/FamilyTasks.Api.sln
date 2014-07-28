@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyTasks.Api", "FamilyTasks.Api\FamilyTasks.Api.csproj", "{D1F7E32D-9DA9-4EFE-A419-E5E15C869A15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyTasks.Api", "FamilyTasks.Api\FamilyTasks.Api.csproj", "{3CD04D0B-816D-4FDF-B437-F239106C8542}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D1F7E32D-9DA9-4EFE-A419-E5E15C869A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1F7E32D-9DA9-4EFE-A419-E5E15C869A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1F7E32D-9DA9-4EFE-A419-E5E15C869A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1F7E32D-9DA9-4EFE-A419-E5E15C869A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD04D0B-816D-4FDF-B437-F239106C8542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD04D0B-816D-4FDF-B437-F239106C8542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD04D0B-816D-4FDF-B437-F239106C8542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD04D0B-816D-4FDF-B437-F239106C8542}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
