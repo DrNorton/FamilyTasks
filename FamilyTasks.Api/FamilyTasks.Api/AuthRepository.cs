@@ -11,9 +11,9 @@ namespace FamilyTasks.Api
 {
     public class AuthRepository : IDisposable
     {
-        private AuthContext _ctx;
+        private readonly AuthContext _ctx;
 
-        private UserManager<IdentityUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public AuthRepository()
         {
@@ -23,13 +23,12 @@ namespace FamilyTasks.Api
 
         public async Task<IdentityResult> RegisterUser(UserModel userModel)
         {
-            IdentityUser user = new IdentityUser
+            var user = new IdentityUser
             {
                 UserName = userModel.Email
             };
 
             var result = await _userManager.CreateAsync(user, userModel.Password);
-
             return result;
         }
 

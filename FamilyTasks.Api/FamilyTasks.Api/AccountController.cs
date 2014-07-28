@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using FamilyTasks.Api.Entities;
+using FamilyTasks.Dto.Users;
+using FamilyTasks.EfDao;
 using Microsoft.AspNet.Identity;
 
 namespace FamilyTasks.Api
@@ -12,11 +14,11 @@ namespace FamilyTasks.Api
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        private AuthRepository _repo = null;
+        private EfAuthRepository _repo = null;
 
         public AccountController()
         {
-            _repo = new AuthRepository();
+            _repo = new EfAuthRepository();
         }
 
         // POST api/Account/Register
@@ -29,7 +31,7 @@ namespace FamilyTasks.Api
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await _repo.RegisterUser(userModel);
+            IdentityResult result = await _repo.RegisterUser(new CreateUserDto(userModel.Email, userModel.Email, string.Empty, "123456"));
 
             IHttpActionResult errorResult = GetErrorResult(result);
 

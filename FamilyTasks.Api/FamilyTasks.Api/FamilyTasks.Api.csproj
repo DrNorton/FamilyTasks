@@ -215,6 +215,20 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\familytasksapi - FTP.pubxml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FamilyTasks.Dao\FamilyTasks.Dao.csproj">
+      <Project>{DCA8E51C-692E-481E-92B5-48FC3C7777C5}</Project>
+      <Name>FamilyTasks.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FamilyTasks.Dto\FamilyTasks.Dto.csproj">
+      <Project>{A258463E-8EFE-40A6-A634-3D8D1CC6AB5F}</Project>
+      <Name>FamilyTasks.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FamilyTasks.EfDao\FamilyTasks.EfDao.csproj">
+      <Project>{B86D54E0-98E8-4214-953B-E9681091F5E2}</Project>
+      <Name>FamilyTasks.EfDao</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

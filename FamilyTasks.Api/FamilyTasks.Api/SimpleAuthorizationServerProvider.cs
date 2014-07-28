@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using FamilyTasks.EfDao;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 
@@ -21,10 +22,10 @@ namespace FamilyTasks.Api
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (AuthRepository _repo = new AuthRepository())
+            using (var _repo = new EfAuthRepository())
             {
                 IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
-
+               
                 if (user == null)
                 {
                     context.SetError("invalid_grant", "The user name or password is incorrect.");
