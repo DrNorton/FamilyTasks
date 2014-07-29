@@ -4,15 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
 using FamilyTasks.Api.Entities;
 using FamilyTasks.Dto.Users;
 using FamilyTasks.EfDao;
 using Microsoft.AspNet.Identity;
+using FamilyTasks.Api.ApiResults;
 
 namespace FamilyTasks.Api
 {
-    [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    [System.Web.Http.RoutePrefix("api/Account")]
+    public class AccountController : CustomApiController
     {
         private EfAuthRepository _repo = null;
 
@@ -22,8 +24,8 @@ namespace FamilyTasks.Api
         }
 
         // POST api/Account/Register
-        [AllowAnonymous]
-        [Route("Register")]
+        [System.Web.Http.AllowAnonymous]
+        [System.Web.Http.Route("Register")]
         public async Task<IHttpActionResult> Register(UserModel userModel)
         {
             if (!ModelState.IsValid)
@@ -40,7 +42,7 @@ namespace FamilyTasks.Api
                 return errorResult;
             }
 
-            return Ok();
+            return EmptyApiResult();
         }
 
         protected override void Dispose(bool disposing)
