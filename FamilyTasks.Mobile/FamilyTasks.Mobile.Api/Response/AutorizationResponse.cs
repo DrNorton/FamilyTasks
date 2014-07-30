@@ -17,5 +17,7 @@ namespace FamilyTasks.Mobile.Api.Response
 
         [JsonProperty("expires_in")]
         public int ExpiresIn { get; set; }
+
+  
     }
 }

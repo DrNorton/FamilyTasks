@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Helpers;
@@ -45,12 +46,13 @@ namespace FamilyTasks.Api.ApiResults
 
         public HttpResponseMessage Execute()
         {
-            var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+            var response = new HttpResponseMessage(HttpStatusCode.OK)
             {
+                
                 Content = new StringContent(Json.Encode(this)),
                 RequestMessage = _request
             };
-
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             return response;
         }
     }

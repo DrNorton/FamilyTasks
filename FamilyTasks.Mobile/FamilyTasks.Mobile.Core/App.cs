@@ -1,3 +1,4 @@
+using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
 
 namespace FamilyTasks.Mobile.Core
@@ -10,7 +11,7 @@ namespace FamilyTasks.Mobile.Core
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
-				
+            
             RegisterAppStart<ViewModels.FirstViewModel>();
         }
     }

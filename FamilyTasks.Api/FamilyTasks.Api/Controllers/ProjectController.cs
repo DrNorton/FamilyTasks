@@ -14,7 +14,9 @@ namespace AngularJSAuthentication.API.Controllers
     [RoutePrefix("api/Project")]
     public class ProjectController : CustomApiController
     {
-        [Authorize]
+
+        [System.Web.Http.Authorize]
+        [System.Web.Http.Route("List")]
         public IHttpActionResult List()
         {
             return SuccessApiResult(new List<ProjectsListItemDto>
@@ -37,6 +39,8 @@ namespace AngularJSAuthentication.API.Controllers
         }
 
         [Authorize]
+        [System.Web.Http.Route("Tasks")]
+       
         public IHttpActionResult Tasks(long projectId)
         {
             return SuccessApiResult(new List<TasksListItemDto> {new TasksListItemDto {Id = 1, Name = "asdsad"}});

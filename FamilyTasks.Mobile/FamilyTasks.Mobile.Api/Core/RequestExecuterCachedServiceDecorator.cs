@@ -7,6 +7,7 @@ using FamilyTasks.Mobile.Api.Core.Base;
 using FamilyTasks.Mobile.Api.Request;
 using FamilyTasks.Mobile.Api.Response;
 using FamilyTasks.Mobile.Api.Settings;
+using RestSharp.Portable;
 
 namespace FamilyTasks.Mobile.Api.Core
 {
@@ -23,20 +24,20 @@ namespace FamilyTasks.Mobile.Api.Core
             }
         }
 
-        public RequestExecuterCachedServiceDecorator(ICacheService cacheService,ISettings settings)
+        public RequestExecuterCachedServiceDecorator(IRequestExecuterService requestExecuterService, ICacheService cacheService)
         {
             _cacheService = cacheService;
-            _requestExecuterService = new RequestExecuterService(settings);
+            _requestExecuterService = requestExecuterService;
         }
 
-        public async Task<AutorizationResponse> Autorizate(AutorizationRequest autorizationRequest)
+        public async Task<Response<AutorizationResponse>> Autorizate(AutorizationRequest autorizationRequest)
         {
             return await _requestExecuterService.Autorization(autorizationRequest);
         }
 
-        public async Task<T> ExecuteRequest<T>(BaseRequest request, bool useCache=false) where T : BaseRequest, new()
+        public async Task<Response<T>> ExecuteRequest<T>(BaseRequest request, bool useCache=false) 
         {
-            T result=null;
+            Response<T> result=default(Response<T>);
             if (useCache)
             {
                 result = _cacheService.GetCachedResult<T>(request);
@@ -55,14 +56,11 @@ namespace FamilyTasks.Mobile.Api.Core
         }
 
 
-        public async Task<AutorizationResponse> Autorization(AutorizationRequest autorizationRequest)
+        public async Task<Response<AutorizationResponse>> Autorization(AutorizationRequest autorizationRequest)
         {
             return await _requestExecuterService.Autorization(autorizationRequest);
         }
 
-        public Task<T> ExecuteRequest<T>(BaseRequest request)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
