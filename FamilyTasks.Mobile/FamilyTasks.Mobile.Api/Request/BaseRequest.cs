@@ -10,6 +10,7 @@ namespace FamilyTasks.Mobile.Api.Request
 {
     public abstract class BaseRequest
     {
+        [JsonIgnore]
         public abstract string MethodName { get; }
         public string SerializeToJson()
         {

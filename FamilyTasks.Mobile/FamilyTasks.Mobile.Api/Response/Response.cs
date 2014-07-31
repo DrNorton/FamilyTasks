@@ -10,9 +10,26 @@ namespace FamilyTasks.Mobile.Api.Response
 {
     public class Response<T>
     {
-        public int ErrorCode { get; set; }
-        public string ErrorMessage { get; set; }
-        public T Result { get; set; }
+        private int _errorCode;
+        private string _errorMessage;
+        private T _result;
 
+        public int ErrorCode
+        {
+            get { return _errorCode; }
+            set { _errorCode = value; }
+        }
+
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set { _errorMessage = value; }
+        }
+
+        public T Result
+        {
+            get { return _result; }
+            set { _result = value; }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -13,13 +14,14 @@ namespace FamilyTasks.Mobile.Api.Core
 {
     public class RequestExecuterService : IRequestExecuterService
     {
-        private readonly ISettings _settings;
-        private RestClient _client;
+        private readonly ISettingsService _settingsService;
+        private IRestClient _client;
         private Token _token;
 
-        public RequestExecuterService(ISettings settings)
+        public RequestExecuterService(ISettingsService settingsService)
         {
-            _settings = settings;
+            _settingsService = settingsService;
+            _client =  new RestClient(_settingsService.BaseUrl);;
             Init();
         }
 
@@ -27,88 +29,109 @@ namespace FamilyTasks.Mobile.Api.Core
         {
             get { return _token!=null; }
         }
-
         public Token Token
         {
             get { return _token; }
         }
-
         private void Init()
         {
-            _client = new RestClient(_settings.BaseUrl);
+         
             _client.AddHandler("application/json", new JsonDeserializer());
             GetTokenFromStorage();
         }
-        public async Task<AutorizationResponse> Autorization(AutorizationRequest autorizationRequest)
+        public async Task<Response<AutorizationResponse>> Autorization(AutorizationRequest autorizationRequest)
         {
             var result=await GetNewTokenFromApi(autorizationRequest);
-            SaveTokenToStorage(result);
+            if (result.ErrorCode == 0) //Если успешно сохраняем
+            {
+                SaveTokenToStorage(result.Result);
+            }
+            
             return result;
         }
-        public async Task<T> ExecuteRequest<T>(BaseRequest request)
-        {
-            var jsonParam = request.SerializeToJson();
-            var restRequest = GetRequestAndPrepareWithToken(request.MethodName);
-            restRequest.AddParameter("", jsonParam);
-            return await Execute<T>(restRequest);
-        }
-        private async Task<AutorizationResponse> GetNewTokenFromApi(AutorizationRequest autorizationRequest)
+        private async Task<Response<AutorizationResponse>> GetNewTokenFromApi(AutorizationRequest autorizationRequest)
         {
             var request = new RestRequest("/token", HttpMethod.Post);
             request.AddParameter("grant_type", "password");
             request.AddParameter("userName", autorizationRequest.UserName);
             request.AddParameter("password", autorizationRequest.Password);
-         
-           
-            return await Execute<AutorizationResponse>(request);
+
+            try
+            {
+                var result = await ExecuteAutorization<AutorizationResponse>(request);
+                return result;
+            }
+            catch (Exception e)
+            {
+                return new Response<AutorizationResponse>(){ErrorCode = 100,ErrorMessage = String.Format("Внутренняя ошибка: {0}",e.Message)};
+            }
         }
-
-
-        private async Task<T> Execute<T>(IRestRequest restRequest)
+        private async Task<Response<T>> Execute<T>(IRestRequest restRequest)
         {
             try
             {
-                var response = await _client.Execute<T>(restRequest);
+                var response = await _client.Execute<Response<T>>(restRequest);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     return response.Data;
                 }
                 else
                 {
-                    throw new HttpException(response.StatusCode, response.StatusDescription);
+                    return new Response<T>() {ErrorCode = 1000, ErrorMessage = "Внутренняя ошибка"};
+                  
                 }
             }
             catch (Exception e)
             {
-                throw new HttpException(HttpStatusCode.Conflict, e.Message.ToString(), e);
+                return new Response<T>() { ErrorCode = 10000, ErrorMessage = e.Message };
             }
         }
-
+        private async Task<Response<T>> ExecuteAutorization<T>(IRestRequest restRequest)
+        {
+            try
+            {
+                var response = await _client.Execute<T>(restRequest);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    return new Response<T>(){ErrorCode = 0,ErrorMessage = "",Result = response.Data};
+                }
+                else
+                {
+                    return new Response<T>() { ErrorCode = 10000, ErrorMessage = response.StatusCode.ToString()};
+                }
+            }
+            catch (Exception e)
+            {
+                 return new Response<T>() { ErrorCode = 10000, ErrorMessage = e.Message};
+            }
+        }
         private IRestRequest GetRequestAndPrepareWithToken(string method)
         {
             var request = new RestRequest(method);
-            request.AddHeader("Autorization", String.Format("{0} {1}", Token.TokenType, Token.Value));
             request.AddHeader("Accept", "application/json");
-            request.AddHeader("Content-Type", "application/json");
+            request.Parameters.Clear();
+            if (Token != null) { request.AddHeader("Authorization", String.Format("{0} {1}", "Bearer", Token.Value)); }
             return request;
         }
-
         private void SaveTokenToStorage(AutorizationResponse response)
         {
-            _settings.Token = new Token() { Value = response.AccessToken, ExpiredIn = response.ExpiresIn, TokenType = response.TokenType };
+            _settingsService.Token = new Token() { Value = response.AccessToken, ExpiredIn = response.ExpiresIn, TokenType = response.TokenType };
+            _token = _settingsService.Token;
         }
         private void GetTokenFromStorage()
         {
-            _token = _settings.Token;
+            _token = _settingsService.Token;
         }
-
-
-        public Task<T> ExecuteRequest<T>(BaseRequest request, bool useCache = false) where T : BaseRequest, new()
+        public async Task<Response<T>> ExecuteRequest<T>(BaseRequest request, bool useCache = false)
         {
-            throw new NotImplementedException();
+            var restRequest = GetRequestAndPrepareWithToken(request.MethodName);
+            restRequest.Method=HttpMethod.Post;
+         
+            restRequest.AddParameter("application/json", request, ParameterType.RequestBody);
+            
+            Debug.WriteLine("отправлен запрос {0}",_client.BuildUrl(restRequest).AbsoluteUri);
+            return await Execute<T>(restRequest);
         }
-
-       
     }
 
     

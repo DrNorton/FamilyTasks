@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Projects\ProjectsListItemDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\TasksListItemDto.cs" />
     <Compile Include="Users\CreateUserDto.cs" />
   </ItemGroup>
   <ItemGroup />

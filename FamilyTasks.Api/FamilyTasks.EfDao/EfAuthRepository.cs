@@ -29,7 +29,7 @@ namespace FamilyTasks.EfDao
             user.Password = createUserDto.Password;
             _context.Set<User>().Add(user);
             _context.SaveChanges();
-            return new IdentityResult();
+            return IdentityResult.Success;
         }
 
         public async Task<IdentityUser> FindUser(string userName, string password)

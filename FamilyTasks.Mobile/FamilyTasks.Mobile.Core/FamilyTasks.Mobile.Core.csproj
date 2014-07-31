@@ -39,8 +39,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Interfaces\IMessageProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\FirstViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Auth\AuthViewModel.cs" />
+    <Compile Include="ViewModels\Auth\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\MyProjectListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">
@@ -54,7 +58,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ToDo-MvvmCross\_ Core.txt" />
+    <ProjectReference Include="..\FamilyTasks.Mobile.Api\FamilyTasks.Mobile.Api.csproj">
+      <Project>{4848ac4e-02f5-4b45-94f0-eb582e3cd76d}</Project>
+      <Name>FamilyTasks.Mobile.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Content\Icons\appbar.add.rest.png" />
+    <Content Include="Content\Icons\appbar.check.rest.png" />
+    <Content Include="Content\Icons\appbar.minus.rest.png" />
+    <Content Include="Content\Icons\appbar.prompt.four.rest.png" />
+    <Content Include="Content\Icons\appbar.prompt.three.rest.png" />
+    <Content Include="Content\Icons\appbar.prompt.two.rest.png" />
+    <Content Include="Content\Icons\appbar.repeat.png" />
+    <Content Include="Content\Icons\appbar.share.rest.png" />
+    <Content Include="Content\Icons\help.png" />
+    <Content Include="Content\Icons\navigation.png" />
+    <Content Include="Content\Icons\password.png" />
+    <Content Include="Content\Icons\person.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
