@@ -2,9 +2,9 @@ using Cirrious.MvvmCross.WindowsPhone.Views;
 
 namespace FamilyTasks.Mobile.WinPhone.UI.Views
 {
-    public partial class FirstView : MvxPhonePage
+    public partial class MainView : MvxPhonePage
     {
-        public FirstView()
+        public MainView()
         {
             InitializeComponent();
         }

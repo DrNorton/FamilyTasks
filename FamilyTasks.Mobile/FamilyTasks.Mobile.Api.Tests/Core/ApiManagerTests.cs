@@ -16,7 +16,7 @@ namespace FamilyTasks.Mobile.Api.Core.Tests
     [TestFixture()]
     public class ApiManagerTests
     {
-        private SettingsStub _settings;
+        private SettingsServiceStub _settingsService;
 
         [Test()]
         public async void TestAutorizateInRealLoginCheckToken()
@@ -41,47 +41,72 @@ namespace FamilyTasks.Mobile.Api.Core.Tests
         {
             var manager = CreateApiManager();
             var result = await manager.Autorizate(new AutorizationRequest() { UserName = "andrew", Password = "SuperPass" });
-            Assert.IsNotNull(_settings.Token, "Не сохранился токен, при норм учетных данных");
+            Assert.IsNotNull(_settingsService.Token, "Не сохранился токен, при норм учетных данных");
         }
 
         private IApiManager CreateApiManager()
         {
-            _settings = new SettingsStub();
+            _settingsService = new SettingsServiceStub();
             var cacheStub = new CacheStub();
-            var client = new RestClient(_settings.BaseUrl);
-            return new ApiManager(new RequestExecuterService(_settings,client));
+            var client = new RestClient(_settingsService.BaseUrl);
+            return new ApiManager(new RequestExecuterService(_settingsService));
         }
 
         [Test()]
         public async void RegisterTest()
         {
            var manager = CreateApiManager();
-           var str=await manager.Register(new RegistrationRequest() {ConfirmPassword = "12345", Email = "12345", Password = "12345"});
+           var str=await manager.Register(new RegistrationRequest() {ConfirmPassword = "123456", Email = "12345", Password = "123456"});
            Assert.AreEqual(str.ErrorCode,0);
         }
 
-        [Test()]
-        public async void GetProjectsListTest()
+      
+        [Test]
+        [TestCase(true)]
+        [TestCase(false)]
+        public async void GetProjectsListTest(bool isAuth)
         {
             var manager = CreateApiManager();
+            if (isAuth)
+            {
+                var result =
+                    await manager.Autorizate(new AutorizationRequest() {UserName = "andrew", Password = "SuperPass"});
+            }
+            
             var str = await manager.GetProjectsList();
+            if (isAuth)
+            {
+                Assert.IsNotNull(str.Result);
+            }
+            else
+            {
+                Assert.IsNull(str.Result);
+            }
         }
 
+
         [Test]
-        public async void GetProjectListTest_GetWithoutAutorization_ErrorCode()
+        [TestCase(true)]
+        [TestCase(false)]
+        public async void GetTaskByProjectIdTest(bool isAuth)
         {
             var manager = CreateApiManager();
-            var str = await manager.GetProjectsList();
-            Assert.AreNotEqual(str.ErrorCode,0);
+            if (isAuth)
+            {
+                var result = await manager.Autorizate(new AutorizationRequest() { UserName = "andrew", Password = "SuperPass" });
+            }
+            var str = await manager.GetTaskByProjectId(1);
+            if (isAuth)
+            {
+                Assert.IsNotNull(str.Result);
+            }
+            else
+            {
+                Assert.IsNull(str.Result);
+            }
+            
         }
-        [Test]
-        public async void GetProjectListTest_GetWithAutorization_ProjectsListLoaded()
-        {
-            var manager = CreateApiManager();
-            var result = await manager.Autorizate(new AutorizationRequest() { UserName = "andrew", Password = "SuperPass" });
-            var str = await manager.GetProjectsList();
-            Assert.NotNull(str.Result);
-        }
+      
 
     }
 }

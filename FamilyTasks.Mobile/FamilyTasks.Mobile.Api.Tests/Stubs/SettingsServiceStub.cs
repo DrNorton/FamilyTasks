@@ -7,12 +7,12 @@ using FamilyTasks.Mobile.Api.Settings;
 
 namespace FamilyTasks.Mobile.Api.Tests.Stubs
 {
-    public class SettingsStub:ISettings
+    public class SettingsServiceStub:ISettingsService
     {
         private Token _token;
         public Uri BaseUrl
         {
-            get { return new Uri(@"http://localhost:63624/"); }
+            get { return new Uri(@"http://familytasksapi.azurewebsites.net/"); }
         }
 
         public Token Token

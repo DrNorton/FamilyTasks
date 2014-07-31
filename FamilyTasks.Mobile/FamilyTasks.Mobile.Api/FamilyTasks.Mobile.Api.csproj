@@ -41,9 +41,11 @@
     <Compile Include="Exceptions\HttpException.cs" />
     <Compile Include="Core\IApiManager.cs" />
     <Compile Include="Request\GetProjectListRequest.cs" />
+    <Compile Include="Request\GetTasksByProjectIdRequest.cs" />
     <Compile Include="Request\RegistrationRequest.cs" />
     <Compile Include="Response\ProjectResponse.cs" />
-    <Compile Include="Settings\ISettings.cs" />
+    <Compile Include="Response\TaskResponse.cs" />
+    <Compile Include="Settings\ISettingsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\RequestExecuterService.cs" />
     <Compile Include="Request\AutorizationRequest.cs" />

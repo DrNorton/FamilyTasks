@@ -9,11 +9,11 @@ using Cirrious.MvvmCross.WindowsPhone.Views;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace FamilyTasks.Mobile.WinPhone.UI.Views
+namespace FamilyTasks.Mobile.WinPhone.UI.Views.Auth
 {
-    public partial class TestView : MvxPhonePage
+    public partial class RegisterView : MvxPhonePage
     {
-        public TestView()
+        public RegisterView()
         {
             InitializeComponent();
         }

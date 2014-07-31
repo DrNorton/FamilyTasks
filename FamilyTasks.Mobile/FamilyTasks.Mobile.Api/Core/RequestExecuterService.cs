@@ -14,14 +14,14 @@ namespace FamilyTasks.Mobile.Api.Core
 {
     public class RequestExecuterService : IRequestExecuterService
     {
-        private readonly ISettings _settings;
+        private readonly ISettingsService _settingsService;
         private IRestClient _client;
         private Token _token;
 
-        public RequestExecuterService(ISettings settings,IRestClient restClient)
+        public RequestExecuterService(ISettingsService settingsService)
         {
-            _settings = settings;
-            _client = restClient;
+            _settingsService = settingsService;
+            _client =  new RestClient(_settingsService.BaseUrl);;
             Init();
         }
 
@@ -29,12 +29,10 @@ namespace FamilyTasks.Mobile.Api.Core
         {
             get { return _token!=null; }
         }
-
         public Token Token
         {
             get { return _token; }
         }
-
         private void Init()
         {
          
@@ -51,7 +49,6 @@ namespace FamilyTasks.Mobile.Api.Core
             
             return result;
         }
-
         private async Task<Response<AutorizationResponse>> GetNewTokenFromApi(AutorizationRequest autorizationRequest)
         {
             var request = new RestRequest("/token", HttpMethod.Post);
@@ -69,8 +66,6 @@ namespace FamilyTasks.Mobile.Api.Core
                 return new Response<AutorizationResponse>(){ErrorCode = 100,ErrorMessage = String.Format("Внутренняя ошибка: {0}",e.Message)};
             }
         }
-
-
         private async Task<Response<T>> Execute<T>(IRestRequest restRequest)
         {
             try
@@ -91,7 +86,6 @@ namespace FamilyTasks.Mobile.Api.Core
                 return new Response<T>() { ErrorCode = 10000, ErrorMessage = e.Message };
             }
         }
-
         private async Task<Response<T>> ExecuteAutorization<T>(IRestRequest restRequest)
         {
             try
@@ -111,44 +105,33 @@ namespace FamilyTasks.Mobile.Api.Core
                  return new Response<T>() { ErrorCode = 10000, ErrorMessage = e.Message};
             }
         }
-
-   
-
         private IRestRequest GetRequestAndPrepareWithToken(string method)
         {
             var request = new RestRequest(method);
-            
+            request.AddHeader("Accept", "application/json");
+            request.Parameters.Clear();
             if (Token != null) { request.AddHeader("Authorization", String.Format("{0} {1}", "Bearer", Token.Value)); }
-            //request.AddHeader("Accept", "application/json");
-            //request.AddHeader("Content-Type", "application/json");
             return request;
         }
-
         private void SaveTokenToStorage(AutorizationResponse response)
         {
-            _settings.Token = new Token() { Value = response.AccessToken, ExpiredIn = response.ExpiresIn, TokenType = response.TokenType };
-            _token = _settings.Token;
+            _settingsService.Token = new Token() { Value = response.AccessToken, ExpiredIn = response.ExpiresIn, TokenType = response.TokenType };
+            _token = _settingsService.Token;
         }
         private void GetTokenFromStorage()
         {
-            _token = _settings.Token;
+            _token = _settingsService.Token;
         }
-
-
         public async Task<Response<T>> ExecuteRequest<T>(BaseRequest request, bool useCache = false)
         {
-            var jsonParam = request.SerializeToJson();
             var restRequest = GetRequestAndPrepareWithToken(request.MethodName);
             restRequest.Method=HttpMethod.Post;
-            if (jsonParam != "{}")
-            {
-                restRequest.AddParameter("", jsonParam);
-            }
-           Debug.WriteLine("отправлен запрос {0}",_client.BuildUrl(restRequest).AbsoluteUri);
+         
+            restRequest.AddParameter("application/json", request, ParameterType.RequestBody);
+            
+            Debug.WriteLine("отправлен запрос {0}",_client.BuildUrl(restRequest).AbsoluteUri);
             return await Execute<T>(restRequest);
         }
-
-       
     }
 
     

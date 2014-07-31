@@ -10,6 +10,11 @@ namespace FamilyTasks.Mobile.Api.Core
     {
         private readonly IRequestExecuterService _requestExecuterService;
 
+        public bool IsAutorizated
+        {
+            get { return _requestExecuterService.IsAutorizated; }
+        }
+
         public ApiManager(IRequestExecuterService requestExecuterService)
         {
             _requestExecuterService = requestExecuterService;
@@ -28,5 +33,11 @@ namespace FamilyTasks.Mobile.Api.Core
         {
             return await _requestExecuterService.ExecuteRequest<List<ProjectResponse>>(new GetProjectListRequest());
         }
+
+        public async Task<Response<List<TaskResponse>>> GetTaskByProjectId(long projectId)
+        {
+            return await _requestExecuterService.ExecuteRequest<List<TaskResponse>>(new GetTasksByProjectIdRequest(){ProjectId = projectId});
+        } 
+
     }
 }

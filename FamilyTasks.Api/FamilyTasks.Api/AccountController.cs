@@ -33,7 +33,7 @@ namespace FamilyTasks.Api
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await _repo.RegisterUser(new CreateUserDto(userModel.Email, userModel.Email, string.Empty, "123456"));
+            IdentityResult result = await _repo.RegisterUser(new CreateUserDto(userModel.Email, userModel.Email, string.Empty, userModel.Password));
 
             IHttpActionResult errorResult = GetErrorResult(result);
 

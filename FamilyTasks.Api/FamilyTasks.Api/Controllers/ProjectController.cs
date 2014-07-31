@@ -7,6 +7,7 @@ using System.Web.Http;
 using FamilyTasks.Api.ApiResults;
 using FamilyTasks.Dto.Projects;
 using FamilyTasks.Dto.Tasks;
+using Newtonsoft.Json.Linq;
 
 
 namespace AngularJSAuthentication.API.Controllers
@@ -38,10 +39,9 @@ namespace AngularJSAuthentication.API.Controllers
             });
         }
 
-        [Authorize]
+        [System.Web.Http.Authorize]
         [System.Web.Http.Route("Tasks")]
-       
-        public IHttpActionResult Tasks(long projectId)
+        public IHttpActionResult Tasks([FromBody]JToken projectId)
         {
             return SuccessApiResult(new List<TasksListItemDto> {new TasksListItemDto {Id = 1, Name = "asdsad"}});
         }

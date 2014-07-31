@@ -1,0 +1,45 @@
+﻿<views:MvxPhonePage
+    x:Class="FamilyTasks.Mobile.WinPhone.UI.Views.Auth.RegisterView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"
+    xmlns:binding="clr-namespace:Coding4Fun.Toolkit.Controls.Binding;assembly=Coding4Fun.Toolkit.Controls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="ContentPanel" VerticalAlignment="Center" Grid.Row="1" Margin="12,0,12,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="регистрация" Margin="10" HorizontalAlignment="Center"  />
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Логин:"     />
+            <TextBox binding:TextBinding.UpdateSourceOnChange="True"   Text="{Binding RegisterInfoModel.Login,Mode=TwoWay}"  />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Пароль:"     />
+            <PasswordBox  binding:TextBinding.UpdateSourceOnChange="True"   Password="{Binding RegisterInfoModel.Password,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Подтверждение:"     />
+            <PasswordBox  binding:TextBinding.UpdateSourceOnChange="True"   Password="{Binding RegisterInfoModel.ConfirmPassword,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
+        </StackPanel>
+        <Button Command="{Binding RegisterCommand}"   Grid.Row="4" Content="войти" HorizontalAlignment="Left" Width="200"/>
+    </Grid>
+
+</views:MvxPhonePage>

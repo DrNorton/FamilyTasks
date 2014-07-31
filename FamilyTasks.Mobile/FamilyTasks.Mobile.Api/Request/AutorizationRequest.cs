@@ -10,5 +10,16 @@ namespace FamilyTasks.Mobile.Api.Request
     {
         public string UserName { get; set; }
         public string Password { get; set; }
+
+        public AutorizationRequest(string userName, string password)
+        {
+            UserName = userName;
+            Password = password;
+        }
+
+        public AutorizationRequest()
+        {
+            
+        }
     }
 }

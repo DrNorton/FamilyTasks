@@ -2,7 +2,7 @@
 
 namespace FamilyTasks.Mobile.Api.Settings
 {
-    public interface ISettings
+    public interface ISettingsService
     {
         Uri BaseUrl { get;  }
         Token Token { get; set; }

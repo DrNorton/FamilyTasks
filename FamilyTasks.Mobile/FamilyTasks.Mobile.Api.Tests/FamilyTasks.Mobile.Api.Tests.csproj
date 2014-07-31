@@ -73,7 +73,7 @@
     <Compile Include="Core\ApiManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stubs\CacheStub.cs" />
-    <Compile Include="Stubs\SettingsStub.cs" />
+    <Compile Include="Stubs\SettingsServiceStub.cs" />
     <Compile Include="Stubs\TestRestClient.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,5 +10,7 @@ namespace FamilyTasks.Mobile.Api.Core
         Task<Response<AutorizationResponse>> Autorizate(AutorizationRequest autorizationRequest);
         Task<Response<string>> Register(RegistrationRequest autorizationRequest);
         Task<Response<List<ProjectResponse>>> GetProjectsList();
+        Task<Response<List<TaskResponse>>> GetTaskByProjectId(long projectId);
+        bool IsAutorizated { get; }
     }
 }
