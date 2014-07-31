@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyTasks.Mobile.WinPhone", "FamilyTasks.Mobile\FamilyTasks.Mobile.WinPhone\FamilyTasks.Mobile.WinPhone.csproj", "{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}"
 EndProject
@@ -16,12 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyTasks.Mobile.Core", "FamilyTasks.Mobile.Core\FamilyTasks.Mobile.Core.csproj", "{73AF2A36-FBC6-4B9D-B88F-1CB04DC73F95}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		FamilyTasks.Mobile\FamilyTasks.Mobile\FamilyTasks.Mobile.projitems*{82b0ebd6-38b8-4e98-8828-16d8619c14c3}*SharedItemsImports = 13
-		FamilyTasks.Mobile\FamilyTasks.Mobile\FamilyTasks.Mobile.projitems*{67665a7d-a825-4fee-a845-1280c5cc041c}*SharedItemsImports = 4
-		FamilyTasks.Mobile\FamilyTasks.Mobile\FamilyTasks.Mobile.projitems*{9ff8cfc2-65ac-4fed-aa9a-fbe201714689}*SharedItemsImports = 4
-		FamilyTasks.Mobile\FamilyTasks.Mobile\FamilyTasks.Mobile.projitems*{f2709e62-0bdd-4749-8437-96e9fde8b9d0}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM
@@ -85,9 +79,9 @@ Global
 		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|ARM.Deploy.0 = Debug|ARM
 		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|Mixed Platforms.ActiveCfg = Debug|ARM
-		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|Mixed Platforms.Build.0 = Debug|ARM
-		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|Mixed Platforms.Deploy.0 = Debug|ARM
+		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
 		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|x86.ActiveCfg = Debug|x86
 		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|x86.Build.0 = Debug|x86
 		{F2709E62-0BDD-4749-8437-96E9FDE8B9D0}.Debug|x86.Deploy.0 = Debug|x86
@@ -260,5 +254,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		FamilyTasks.Mobile\FamilyTasks.Mobile\FamilyTasks.Mobile.projitems*{82b0ebd6-38b8-4e98-8828-16d8619c14c3}*SharedItemsImports = 13
+		FamilyTasks.Mobile\FamilyTasks.Mobile\FamilyTasks.Mobile.projitems*{67665a7d-a825-4fee-a845-1280c5cc041c}*SharedItemsImports = 4
+		FamilyTasks.Mobile\FamilyTasks.Mobile\FamilyTasks.Mobile.projitems*{9ff8cfc2-65ac-4fed-aa9a-fbe201714689}*SharedItemsImports = 4
+		FamilyTasks.Mobile\FamilyTasks.Mobile\FamilyTasks.Mobile.projitems*{f2709e62-0bdd-4749-8437-96e9fde8b9d0}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
