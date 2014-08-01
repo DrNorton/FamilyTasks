@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Helpers;
 using System.Web.Http;
 
-namespace FamilyTasks.Api.ApiResults
+namespace FamilyTasks.Api.Controller.ApiResults
 {
     [Serializable]
     public class ApiResult: IHttpActionResult    {

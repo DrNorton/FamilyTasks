@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
 using FamilyTasks.EfDao;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
 
-namespace FamilyTasks.Api
+namespace FamilyTasks.Api.Controller
 {
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
+
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
@@ -22,9 +19,9 @@ namespace FamilyTasks.Api
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (var _repo = new EfAuthRepository())
+            using (var repo = new EfAuthRepository())
             {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
+                IdentityUser user = await repo.FindUser(context.UserName, context.Password);
                
                 if (user == null)
                 {

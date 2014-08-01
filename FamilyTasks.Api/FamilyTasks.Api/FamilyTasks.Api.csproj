@@ -43,6 +43,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
@@ -184,17 +190,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountController.cs" />
-    <Compile Include="ApiResults\CustomApiController.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="AuthContext.cs" />
-    <Compile Include="AuthRepository.cs" />
-    <Compile Include="Controllers\ProjectController.cs" />
-    <Compile Include="Entities\UserModel.cs" />
-    <Compile Include="ApiResults\ApiResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -218,17 +215,9 @@
     <None Include="Properties\PublishProfiles\familytasksapi - FTP.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FamilyTasks.Dao\FamilyTasks.Dao.csproj">
-      <Project>{dca8e51c-692e-481e-92b5-48fc3c7777c5}</Project>
-      <Name>FamilyTasks.Dao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FamilyTasks.Dto\FamilyTasks.Dto.csproj">
-      <Project>{a258463e-8efe-40a6-a634-3d8d1cc6ab5f}</Project>
-      <Name>FamilyTasks.Dto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FamilyTasks.EfDao\FamilyTasks.EfDao.csproj">
-      <Project>{b86d54e0-98e8-4214-953b-e9681091f5e2}</Project>
-      <Name>FamilyTasks.EfDao</Name>
+    <ProjectReference Include="..\FamilyTasks.Dependencies.Castle\FamilyTasks.Dependencies.Castle.csproj">
+      <Project>{31d59041-c923-4a8b-8736-d24877cf6ef7}</Project>
+      <Name>FamilyTasks.Dependencies.Castle</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

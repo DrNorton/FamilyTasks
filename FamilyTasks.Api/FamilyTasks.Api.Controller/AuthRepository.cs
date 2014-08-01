@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
-using FamilyTasks.Api.Entities;
+using FamilyTasks.Api.Controller.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace FamilyTasks.Api
+namespace FamilyTasks.Api.Controller
 {
     public class AuthRepository : IDisposable
     {

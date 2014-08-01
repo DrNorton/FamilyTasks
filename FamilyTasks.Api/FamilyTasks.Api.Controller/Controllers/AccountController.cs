@@ -1,31 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
-using FamilyTasks.Api.Entities;
+using FamilyTasks.Api.Controller.ApiResults;
+using FamilyTasks.Api.Controller.Entities;
+using FamilyTasks.Dao.Repositories;
 using FamilyTasks.Dto.Users;
-using FamilyTasks.EfDao;
 using Microsoft.AspNet.Identity;
-using FamilyTasks.Api.ApiResults;
 
-namespace FamilyTasks.Api
+namespace FamilyTasks.Api.Controller
 {
-    [System.Web.Http.RoutePrefix("api/Account")]
+    [RoutePrefix("api/Account")]
     public class AccountController : CustomApiController
     {
-        private EfAuthRepository _repo = null;
+        private readonly IAuthRepository _authRepository;
 
-        public AccountController()
+        public AccountController(IAuthRepository authRepository)
         {
-            _repo = new EfAuthRepository();
+            if (authRepository == null) throw new ArgumentNullException("authRepository");
+            _authRepository = authRepository;
         }
 
         // POST api/Account/Register
-        [System.Web.Http.AllowAnonymous]
-        [System.Web.Http.Route("Register")]
+        [AllowAnonymous]
+        [Route("Register")]
         public async Task<IHttpActionResult> Register(UserModel userModel)
         {
             if (!ModelState.IsValid)
@@ -33,7 +30,7 @@ namespace FamilyTasks.Api
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await _repo.RegisterUser(new CreateUserDto(userModel.Email, userModel.Email, string.Empty, userModel.Password));
+            IdentityResult result = await _authRepository.RegisterUser(new CreateUserDto(userModel.Email, userModel.Email, string.Empty, userModel.Password));
 
             IHttpActionResult errorResult = GetErrorResult(result);
 
@@ -49,7 +46,7 @@ namespace FamilyTasks.Api
         {
             if (disposing)
             {
-                _repo.Dispose();
+                _authRepository.Dispose();
             }
 
             base.Dispose(disposing);

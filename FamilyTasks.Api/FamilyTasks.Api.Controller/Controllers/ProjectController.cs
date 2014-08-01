@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Security.Claims;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using FamilyTasks.Api.ApiResults;
+using FamilyTasks.Api.Controller.ApiResults;
 using FamilyTasks.Dto.Projects;
 using FamilyTasks.Dto.Tasks;
 using Newtonsoft.Json.Linq;
 
-
-namespace AngularJSAuthentication.API.Controllers
+namespace FamilyTasks.Api.Controller.Controllers
 {
     [RoutePrefix("api/Project")]
     public class ProjectController : CustomApiController
     {
 
-        [System.Web.Http.Authorize]
-        [System.Web.Http.Route("List")]
+        [Authorize]
+        [Route("List")]
         public IHttpActionResult List()
         {
             return SuccessApiResult(new List<ProjectsListItemDto>
@@ -39,8 +34,8 @@ namespace AngularJSAuthentication.API.Controllers
             });
         }
 
-        [System.Web.Http.Authorize]
-        [System.Web.Http.Route("Tasks")]
+        [Authorize]
+        [Route("Tasks")]
         public IHttpActionResult Tasks([FromBody]JToken projectId)
         {
             return SuccessApiResult(new List<TasksListItemDto> {new TasksListItemDto {Id = 1, Name = "asdsad"}});

@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace FamilyTasks.Api.ApiResults
+namespace FamilyTasks.Api.Controller.ApiResults
 {
     public class CustomApiController : ApiController
     {
