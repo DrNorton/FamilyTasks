@@ -10,6 +10,22 @@ namespace FamilyTasks.Mobile.Core.ViewModels
 		: MvxViewModel
     {
         private readonly IApiManager _apiManager;
+        private MvxCommand _navigateToMyProjectsCommand;
+
+        public ICommand NavigateToMyProjectCommand
+        {
+            get
+            {
+                _navigateToMyProjectsCommand = _navigateToMyProjectsCommand ?? new MvxCommand(DoNavigateToMyProjectCommand);
+                return _navigateToMyProjectsCommand;
+            }
+        }
+
+        private void DoNavigateToMyProjectCommand()
+        {
+            ShowViewModel<MyProjectListViewModel>();
+        }
+
 
         public MainViewModel(IApiManager apiManager)
         {
