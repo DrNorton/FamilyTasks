@@ -64,4 +64,7 @@
   <ItemGroup>
     <RefactorLog Include="FamilyTasks.Database.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Profiles.sql" />
+  </ItemGroup>
 </Project>

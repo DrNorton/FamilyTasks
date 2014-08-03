@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IAuthRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FamilyTasks.Dto\FamilyTasks.Dto.csproj">

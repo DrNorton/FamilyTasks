@@ -74,7 +74,6 @@
     <Compile Include="ApiResults\ApiResult.cs" />
     <Compile Include="ApiResults\CustomApiController.cs" />
     <Compile Include="AuthContext.cs" />
-    <Compile Include="AuthRepository.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Entities\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

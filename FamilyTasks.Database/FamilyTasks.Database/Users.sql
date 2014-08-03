@@ -1,10 +1,7 @@
-﻿CREATE TABLE [dbo].[User]
+﻿create table [dbo].[Users]
 (
-	[UserId] BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-    [Email] NCHAR(320) NOT NULL, 
-    [Password] NCHAR(100) NOT NULL, 
-    [AvatarUrl] NCHAR(100) NULL, 
-    [FirstName] NCHAR(30) NULL, 
-    [LastName] NCHAR(30) NULL
-	
+	[Id] [bigint] not null primary key identity(1,1), 
+    [Email] [nvarchar](320) null, 
+    [Password] [nvarchar](100) not null,
+	[Phone] [nvarchar](100) null
 )
