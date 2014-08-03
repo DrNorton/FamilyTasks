@@ -25,6 +25,14 @@ namespace FamilyTasks.EfDao
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AttachedFile> AttachedFiles { get; set; }
+        public virtual DbSet<Profile> Profiles { get; set; }
+        public virtual DbSet<ProjectAttachedFile> ProjectAttachedFiles { get; set; }
+        public virtual DbSet<ProjectMember> ProjectMembers { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Task> Tasks { get; set; }
+        public virtual DbSet<TasksAttachedFile> TasksAttachedFiles { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UsersRelationship> UsersRelationships { get; set; }
     }
 }

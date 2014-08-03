@@ -10,6 +10,14 @@ namespace FamilyTasks.EfDao
         {
 
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Profile>().HasRequired(a => a.User).WithRequiredDependent(b => b.Profile);
+            base.OnModelCreating(modelBuilder);
+        }
+
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Profile> Profiles { get; set; }
     }
 }

@@ -14,11 +14,24 @@ namespace FamilyTasks.EfDao
     
     public partial class User
     {
-        public long UserId { get; set; }
-        public string Email { get; set; }
+        public User()
+        {
+            this.ProjectMembers = new HashSet<ProjectMember>();
+            this.Projects = new HashSet<Project>();
+            this.Tasks = new HashSet<Task>();
+            this.UsersRelationships = new HashSet<UsersRelationship>();
+            this.UsersRelationships1 = new HashSet<UsersRelationship>();
+        }
+    
+        public long Id { get; set; }
+        public string Phone { get; set; }
         public string Password { get; set; }
-        public string AvatarUrl { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+    
+        public virtual ICollection<ProjectMember> ProjectMembers { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
+        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<UsersRelationship> UsersRelationships { get; set; }
+        public virtual ICollection<UsersRelationship> UsersRelationships1 { get; set; }
+        public virtual Profile Profile { get; set; }
     }
 }

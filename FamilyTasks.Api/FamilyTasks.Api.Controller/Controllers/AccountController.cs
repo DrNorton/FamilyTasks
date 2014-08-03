@@ -7,7 +7,7 @@ using FamilyTasks.Dao.Repositories;
 using FamilyTasks.Dto.Users;
 using Microsoft.AspNet.Identity;
 
-namespace FamilyTasks.Api.Controller
+namespace FamilyTasks.Api.Controller.Controllers
 {
     [RoutePrefix("api/Account")]
     public class AccountController : CustomApiController
@@ -23,6 +23,7 @@ namespace FamilyTasks.Api.Controller
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
+         [HttpPost]
         public async Task<IHttpActionResult> Register(UserModel userModel)
         {
             if (!ModelState.IsValid)
@@ -30,7 +31,7 @@ namespace FamilyTasks.Api.Controller
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await _authRepository.RegisterUser(new CreateUserDto(userModel.Email, userModel.Email, string.Empty, userModel.Password));
+            IdentityResult result = await _authRepository.RegisterUser(new CreateUserDto(userModel.Phone, userModel.Password));
 
             IHttpActionResult errorResult = GetErrorResult(result);
 

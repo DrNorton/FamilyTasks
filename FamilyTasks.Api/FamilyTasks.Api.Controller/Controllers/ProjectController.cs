@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using FamilyTasks.Api.Controller.ApiResults;
+using FamilyTasks.Api.Controller.Entities;
 using FamilyTasks.Dto.Projects;
 using FamilyTasks.Dto.Tasks;
 using Newtonsoft.Json.Linq;
@@ -12,8 +13,9 @@ namespace FamilyTasks.Api.Controller.Controllers
     {
 
         [Authorize]
-        [Route("GetMyProjects")]
-        public IHttpActionResult GetMyProjects()
+        [Route("Projects")]
+        [HttpGet]
+        public IHttpActionResult Projects()
         {
             return SuccessApiResult(new List<ProjectsListItemDto>
             {
@@ -35,21 +37,23 @@ namespace FamilyTasks.Api.Controller.Controllers
         }
 
         [Authorize]
-        [Route("GetMyProjectById")]
-        public IHttpActionResult GetMyProjectById(long projectId)
+        [Route("Project")]
+        [HttpGet]
+        [QueryJsonFilter(typeof(IdentityModel), "param")]
+        public IHttpActionResult Project(IdentityModel param)
         {
             return SuccessApiResult(new ProjectsListItemDto(){
                     Description =
                         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
-                    Id = 1,
+                    Id = param.Identity,
                     Name = "First Project"
                 });
         }
 
-
         [Authorize]
-        [Route("GetMyInvitedProjects")]
-        public IHttpActionResult GetMyInvitedProjects()
+        [Route("InvitedProjects")]
+        [HttpGet]
+        public IHttpActionResult InvitedProjects()
         {
             return SuccessApiResult(new List<ProjectsListItemDto>
             {
@@ -71,18 +75,11 @@ namespace FamilyTasks.Api.Controller.Controllers
         }
 
         [Authorize]
-        [Route("DeleteMyProjectById")]
-        public IHttpActionResult DeleteMyProjectById(long projectId)
+        [Route("DeleteMyProject")]
+        [HttpPost]
+        public IHttpActionResult DeleteMyProject(IdentityModel param)
         {
             return EmptyApiResult();
-        }
-
-
-        [Authorize]
-        [Route("Tasks")]
-        public IHttpActionResult Tasks([FromBody]JToken projectId)
-        {
-            return SuccessApiResult(new List<TasksListItemDto> {new TasksListItemDto {Id = 1, Name = "asdsad"}});
         }
 
     }

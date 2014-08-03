@@ -191,9 +191,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\QueryJsonFilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="WindsorCompositionRoot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

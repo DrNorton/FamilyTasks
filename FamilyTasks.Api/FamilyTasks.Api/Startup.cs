@@ -14,7 +14,7 @@ namespace FamilyTasks.Api
             var container = ConfigureWindsor(GlobalConfiguration.Configuration);
             ConfigureOAuth(app, container);
 
-            WebApiConfig.Register(config);
+            GlobalConfiguration.Configure(c => WebApiConfig.Register(c, container));
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
         }

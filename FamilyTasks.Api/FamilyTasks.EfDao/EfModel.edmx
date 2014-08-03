@@ -5,53 +5,691 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FamilyTasks.Entities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AttachedFiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nchar" MaxLength="200" />
+          <Property Name="Type" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="50" />
+          <Property Name="AvatarUrl" Type="nchar" MaxLength="100" />
+          <Property Name="DisplayName" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProjectAttachedFiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="AttachedFileId" Type="bigint" Nullable="false" />
+          <Property Name="ProjectId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectMembers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="ProjectId" Type="bigint" Nullable="false" />
+          <Property Name="MemberId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="CreatedUserId" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="nchar" MaxLength="200" />
+          <Property Name="ProjectImageUrl" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="20" />
+          <Property Name="Description" Type="nchar" MaxLength="200" />
+          <Property Name="EmployeeUserId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TasksAttachedFiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="AttachedFileId" Type="bigint" Nullable="false" />
+          <Property Name="TaskId" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Email" Type="nvarchar(max)" />
-          <Property Name="Password" Type="nvarchar(max)" />
-          <Property Name="AvatarUrl" Type="nvarchar(max)" />
-          <Property Name="FirstName" Type="nvarchar(max)" />
-          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="21" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
+        <EntityType Name="UsersRelationships">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OwnerId" Type="bigint" Nullable="false" />
+          <Property Name="LinkedUserId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Profiles_USERS">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Profiles" Type="Self.Profiles" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profiles">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectAttachedFiles_AttachedFiles">
+          <End Role="AttachedFiles" Type="Self.AttachedFiles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProjectAttachedFiles" Type="Self.ProjectAttachedFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttachedFiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectAttachedFiles">
+              <PropertyRef Name="AttachedFileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectAttachedFiles_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="ProjectAttachedFiles" Type="Self.ProjectAttachedFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectAttachedFiles">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="ProjectMembers" Type="Self.ProjectMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectMembers">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ProjectMembers" Type="Self.ProjectMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectMembers">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ToUsers">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CreatedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="EmployeeUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TasksAttachedFile_AttachedFiles">
+          <End Role="AttachedFiles" Type="Self.AttachedFiles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TasksAttachedFiles" Type="Self.TasksAttachedFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttachedFiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TasksAttachedFiles">
+              <PropertyRef Name="AttachedFileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TasksAttachedFile_Tasks">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
+          <End Role="TasksAttachedFiles" Type="Self.TasksAttachedFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TasksAttachedFiles">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_LinkedUserId">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UsersRelationships" Type="Self.UsersRelationships" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersRelationships">
+              <PropertyRef Name="LinkedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_OwnerdId">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UsersRelationships" Type="Self.UsersRelationships" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersRelationships">
+              <PropertyRef Name="OwnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="FamilyTasksEntitiesStoreContainer">
+          <EntitySet Name="AttachedFiles" EntityType="Self.AttachedFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectAttachedFiles" EntityType="Self.ProjectAttachedFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectMembers" EntityType="Self.ProjectMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TasksAttachedFiles" EntityType="Self.TasksAttachedFiles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersRelationships" EntityType="Self.UsersRelationships" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Profiles_USERS" Association="Self.FK_Profiles_USERS">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectAttachedFiles_AttachedFiles" Association="Self.FK_ProjectAttachedFiles_AttachedFiles">
+            <End Role="AttachedFiles" EntitySet="AttachedFiles" />
+            <End Role="ProjectAttachedFiles" EntitySet="ProjectAttachedFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectAttachedFiles_Projects" Association="Self.FK_ProjectAttachedFiles_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectAttachedFiles" EntitySet="ProjectAttachedFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_Projects" Association="Self.FK_ProjectMembers_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectMembers" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_Users" Association="Self.FK_ProjectMembers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProjectMembers" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ToUsers" Association="Self.FK_Projects_ToUsers">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Projects" Association="Self.FK_Tasks_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Users" Association="Self.FK_Tasks_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TasksAttachedFile_AttachedFiles" Association="Self.FK_TasksAttachedFile_AttachedFiles">
+            <End Role="AttachedFiles" EntitySet="AttachedFiles" />
+            <End Role="TasksAttachedFiles" EntitySet="TasksAttachedFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TasksAttachedFile_Tasks" Association="Self.FK_TasksAttachedFile_Tasks">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="TasksAttachedFiles" EntitySet="TasksAttachedFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_LinkedUserId" Association="Self.FK_User_LinkedUserId">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersRelationships" EntitySet="UsersRelationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_OwnerdId" Association="Self.FK_User_OwnerdId">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersRelationships" EntitySet="UsersRelationships" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FamilyTasks.Entities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="familytasks_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AttachedFiles" EntityType="FamilyTasks.Entities.AttachedFile" />
+          <EntitySet Name="Profiles" EntityType="FamilyTasks.Entities.Profile" />
+          <EntitySet Name="ProjectAttachedFiles" EntityType="FamilyTasks.Entities.ProjectAttachedFile" />
+          <EntitySet Name="ProjectMembers" EntityType="FamilyTasks.Entities.ProjectMember" />
+          <EntitySet Name="Projects" EntityType="FamilyTasks.Entities.Project" />
+          <EntitySet Name="Tasks" EntityType="FamilyTasks.Entities.Task" />
+          <EntitySet Name="TasksAttachedFiles" EntityType="FamilyTasks.Entities.TasksAttachedFile" />
           <EntitySet Name="Users" EntityType="FamilyTasks.Entities.User" />
+          <EntitySet Name="UsersRelationships" EntityType="FamilyTasks.Entities.UsersRelationship" />
+          <AssociationSet Name="FK_ProjectAttachedFiles_AttachedFiles" Association="FamilyTasks.Entities.FK_ProjectAttachedFiles_AttachedFiles">
+            <End Role="AttachedFile" EntitySet="AttachedFiles" />
+            <End Role="ProjectAttachedFile" EntitySet="ProjectAttachedFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TasksAttachedFile_AttachedFiles" Association="FamilyTasks.Entities.FK_TasksAttachedFile_AttachedFiles">
+            <End Role="AttachedFile" EntitySet="AttachedFiles" />
+            <End Role="TasksAttachedFile" EntitySet="TasksAttachedFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectAttachedFiles_Projects" Association="FamilyTasks.Entities.FK_ProjectAttachedFiles_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="ProjectAttachedFile" EntitySet="ProjectAttachedFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_Projects" Association="FamilyTasks.Entities.FK_ProjectMembers_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="ProjectMember" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_Users" Association="FamilyTasks.Entities.FK_ProjectMembers_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ProjectMember" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ToUsers" Association="FamilyTasks.Entities.FK_Projects_ToUsers">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Projects" Association="FamilyTasks.Entities.FK_Tasks_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Users" Association="FamilyTasks.Entities.FK_Tasks_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TasksAttachedFile_Tasks" Association="FamilyTasks.Entities.FK_TasksAttachedFile_Tasks">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="TasksAttachedFile" EntitySet="TasksAttachedFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_LinkedUserId" Association="FamilyTasks.Entities.FK_User_LinkedUserId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UsersRelationship" EntitySet="UsersRelationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_OwnerdId" Association="FamilyTasks.Entities.FK_User_OwnerdId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UsersRelationship" EntitySet="UsersRelationships" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Profiles_USERS" Association="FamilyTasks.Entities.FK_Profiles_USERS">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AttachedFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ProjectAttachedFiles" Relationship="FamilyTasks.Entities.FK_ProjectAttachedFiles_AttachedFiles" FromRole="AttachedFile" ToRole="ProjectAttachedFile" />
+          <NavigationProperty Name="TasksAttachedFiles" Relationship="FamilyTasks.Entities.FK_TasksAttachedFile_AttachedFiles" FromRole="AttachedFile" ToRole="TasksAttachedFile" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="AvatarUrl" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="FamilyTasks.Entities.FK_Profiles_USERS" FromRole="Profile" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ProjectAttachedFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="AttachedFileId" Type="Int64" Nullable="false" />
+          <Property Name="ProjectId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AttachedFile" Relationship="FamilyTasks.Entities.FK_ProjectAttachedFiles_AttachedFiles" FromRole="ProjectAttachedFile" ToRole="AttachedFile" />
+          <NavigationProperty Name="Project" Relationship="FamilyTasks.Entities.FK_ProjectAttachedFiles_Projects" FromRole="ProjectAttachedFile" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="ProjectMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="ProjectId" Type="Int64" Nullable="false" />
+          <Property Name="MemberId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="FamilyTasks.Entities.FK_ProjectMembers_Projects" FromRole="ProjectMember" ToRole="Project" />
+          <NavigationProperty Name="User" Relationship="FamilyTasks.Entities.FK_ProjectMembers_Users" FromRole="ProjectMember" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedUserId" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="ProjectImageUrl" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ProjectAttachedFiles" Relationship="FamilyTasks.Entities.FK_ProjectAttachedFiles_Projects" FromRole="Project" ToRole="ProjectAttachedFile" />
+          <NavigationProperty Name="ProjectMembers" Relationship="FamilyTasks.Entities.FK_ProjectMembers_Projects" FromRole="Project" ToRole="ProjectMember" />
+          <NavigationProperty Name="User" Relationship="FamilyTasks.Entities.FK_Projects_ToUsers" FromRole="Project" ToRole="User" />
+          <NavigationProperty Name="Tasks" Relationship="FamilyTasks.Entities.FK_Tasks_Projects" FromRole="Project" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="EmployeeUserId" Type="Int64" />
+          <NavigationProperty Name="Project" Relationship="FamilyTasks.Entities.FK_Tasks_Projects" FromRole="Task" ToRole="Project" />
+          <NavigationProperty Name="User" Relationship="FamilyTasks.Entities.FK_Tasks_Users" FromRole="Task" ToRole="User" />
+          <NavigationProperty Name="TasksAttachedFiles" Relationship="FamilyTasks.Entities.FK_TasksAttachedFile_Tasks" FromRole="Task" ToRole="TasksAttachedFile" />
+        </EntityType>
+        <EntityType Name="TasksAttachedFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="AttachedFileId" Type="Int64" Nullable="false" />
+          <Property Name="TaskId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="AttachedFile" Relationship="FamilyTasks.Entities.FK_TasksAttachedFile_AttachedFiles" FromRole="TasksAttachedFile" ToRole="AttachedFile" />
+          <NavigationProperty Name="Task" Relationship="FamilyTasks.Entities.FK_TasksAttachedFile_Tasks" FromRole="TasksAttachedFile" ToRole="Task" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AvatarUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProjectMembers" Relationship="FamilyTasks.Entities.FK_ProjectMembers_Users" FromRole="User" ToRole="ProjectMember" />
+          <NavigationProperty Name="Projects" Relationship="FamilyTasks.Entities.FK_Projects_ToUsers" FromRole="User" ToRole="Project" />
+          <NavigationProperty Name="Tasks" Relationship="FamilyTasks.Entities.FK_Tasks_Users" FromRole="User" ToRole="Task" />
+          <NavigationProperty Name="UsersRelationships" Relationship="FamilyTasks.Entities.FK_User_LinkedUserId" FromRole="User" ToRole="UsersRelationship" />
+          <NavigationProperty Name="UsersRelationships1" Relationship="FamilyTasks.Entities.FK_User_OwnerdId" FromRole="User" ToRole="UsersRelationship" />
+          <NavigationProperty Name="Profile" Relationship="FamilyTasks.Entities.FK_Profiles_USERS" FromRole="User" ToRole="Profile" />
         </EntityType>
-      </Schema>
+        <EntityType Name="UsersRelationship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnerId" Type="Int64" Nullable="false" />
+          <Property Name="LinkedUserId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="FamilyTasks.Entities.FK_User_LinkedUserId" FromRole="UsersRelationship" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="FamilyTasks.Entities.FK_User_OwnerdId" FromRole="UsersRelationship" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_ProjectAttachedFiles_AttachedFiles">
+          <End Type="FamilyTasks.Entities.AttachedFile" Role="AttachedFile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FamilyTasks.Entities.ProjectAttachedFile" Role="ProjectAttachedFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttachedFile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectAttachedFile">
+              <PropertyRef Name="AttachedFileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TasksAttachedFile_AttachedFiles">
+          <End Type="FamilyTasks.Entities.AttachedFile" Role="AttachedFile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FamilyTasks.Entities.TasksAttachedFile" Role="TasksAttachedFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttachedFile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TasksAttachedFile">
+              <PropertyRef Name="AttachedFileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectAttachedFiles_Projects">
+          <End Type="FamilyTasks.Entities.Project" Role="Project" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.ProjectAttachedFile" Role="ProjectAttachedFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectAttachedFile">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_Projects">
+          <End Type="FamilyTasks.Entities.Project" Role="Project" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.ProjectMember" Role="ProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectMember">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_Users">
+          <End Type="FamilyTasks.Entities.User" Role="User" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.ProjectMember" Role="ProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectMember">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ToUsers">
+          <End Type="FamilyTasks.Entities.User" Role="User" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.Project" Role="Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="CreatedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Projects">
+          <End Type="FamilyTasks.Entities.Project" Role="Project" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Users">
+          <End Type="FamilyTasks.Entities.User" Role="User" Multiplicity="0..1" />
+          <End Type="FamilyTasks.Entities.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="EmployeeUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TasksAttachedFile_Tasks">
+          <End Type="FamilyTasks.Entities.Task" Role="Task" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.TasksAttachedFile" Role="TasksAttachedFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TasksAttachedFile">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_LinkedUserId">
+          <End Type="FamilyTasks.Entities.User" Role="User" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.UsersRelationship" Role="UsersRelationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersRelationship">
+              <PropertyRef Name="LinkedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_OwnerdId">
+          <End Type="FamilyTasks.Entities.User" Role="User" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.UsersRelationship" Role="UsersRelationship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersRelationship">
+              <PropertyRef Name="OwnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Profiles_USERS">
+          <End Type="FamilyTasks.Entities.User" Role="User" Multiplicity="1" />
+          <End Type="FamilyTasks.Entities.Profile" Role="Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="FamilyTasksEntitiesStoreContainer" CdmEntityContainer="familytasks_dbEntities">
-        <EntitySetMapping Name="Users">
+          <EntitySetMapping Name="AttachedFiles">
+            <EntityTypeMapping TypeName="FamilyTasks.Entities.AttachedFile">
+              <MappingFragment StoreEntitySet="AttachedFiles">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="FamilyTasks.Entities.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="AvatarUrl" ColumnName="AvatarUrl" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectAttachedFiles">
+            <EntityTypeMapping TypeName="FamilyTasks.Entities.ProjectAttachedFile">
+              <MappingFragment StoreEntitySet="ProjectAttachedFiles">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="AttachedFileId" ColumnName="AttachedFileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectMembers">
+            <EntityTypeMapping TypeName="FamilyTasks.Entities.ProjectMember">
+              <MappingFragment StoreEntitySet="ProjectMembers">
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="FamilyTasks.Entities.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="ProjectImageUrl" ColumnName="ProjectImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedUserId" ColumnName="CreatedUserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="FamilyTasks.Entities.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="EmployeeUserId" ColumnName="EmployeeUserId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TasksAttachedFiles">
+            <EntityTypeMapping TypeName="FamilyTasks.Entities.TasksAttachedFile">
+              <MappingFragment StoreEntitySet="TasksAttachedFiles">
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="AttachedFileId" ColumnName="AttachedFileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="FamilyTasks.Entities.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="AvatarUrl" ColumnName="AvatarUrl" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersRelationships">
+            <EntityTypeMapping TypeName="FamilyTasks.Entities.UsersRelationship">
+              <MappingFragment StoreEntitySet="UsersRelationships">
+                <ScalarProperty Name="LinkedUserId" ColumnName="LinkedUserId" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -69,7 +707,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

@@ -56,7 +56,7 @@ namespace FamilyTasks.Mobile.Api.Core.Tests
         public async void RegisterTest()
         {
            var manager = CreateApiManager();
-           var str=await manager.Register(new RegistrationRequest() {ConfirmPassword = "123456", Email = "12345", Password = "123456"});
+           var str=await manager.Register(new RegistrationRequest() {ConfirmPassword = "123456", Phone = "12345", Password = "123456"});
            Assert.AreEqual(str.ErrorCode,0);
         }
 
@@ -73,7 +73,7 @@ namespace FamilyTasks.Mobile.Api.Core.Tests
                     await manager.Autorizate(new AutorizationRequest() {UserName = "andrew", Password = "SuperPass"});
             }
             
-            var str = await manager.GetProjectsList();
+            var str = await manager.GetMyProjects();
             if (isAuth)
             {
                 Assert.IsNotNull(str.Result);
@@ -84,6 +84,28 @@ namespace FamilyTasks.Mobile.Api.Core.Tests
             }
         }
 
+        [Test]
+        [TestCase(true)]
+        [TestCase(false)]
+        public async void GetMyInvintedProjectsTest(bool isAuth)
+        {
+            var manager = CreateApiManager();
+            if (isAuth)
+            {
+                var result =
+                    await manager.Autorizate(new AutorizationRequest() { UserName = "andrew", Password = "SuperPass" });
+            }
+
+            var str = await manager.GetMyInvintedProjects();
+            if (isAuth)
+            {
+                Assert.IsNotNull(str.Result);
+            }
+            else
+            {
+                Assert.IsNull(str.Result);
+            }
+        }
 
         [Test]
         [TestCase(true)]
@@ -105,6 +127,72 @@ namespace FamilyTasks.Mobile.Api.Core.Tests
                 Assert.IsNull(str.Result);
             }
             
+        }
+
+        [Test]
+        [TestCase(true)]
+        [TestCase(false)]
+        public async void GetProjectByIdTest(bool isAuth)
+        {
+            var manager = CreateApiManager();
+            if (isAuth)
+            {
+                var result = await manager.Autorizate(new AutorizationRequest() { UserName = "andrew", Password = "SuperPass" });
+            }
+            var str = await manager.GetProjectById(3);
+            if (isAuth)
+            {
+                Assert.IsNotNull(str.Result);
+                Assert.AreEqual(str.Result.Id, 3);
+            }
+            else
+            {
+                Assert.IsNull(str.Result);
+            }
+        }
+
+
+        [Test]
+        [TestCase(true)]
+        [TestCase(false)]
+        public async void DeleteMyProject(bool isAuth)
+        {
+            var manager = CreateApiManager();
+            if (isAuth)
+            {
+                var result = await manager.Autorizate(new AutorizationRequest() { UserName = "andrew", Password = "SuperPass" });
+            }
+            var str = await manager.DeleteMyProject(3);
+            if (isAuth)
+            {
+                Assert.AreEqual(str.ErrorCode,0);
+            }
+            else
+            {
+                Assert.AreNotEqual(str.ErrorCode, 0);
+            }
+        }
+
+        [Test]
+        [TestCase(true)]
+        [TestCase(false)]
+        public async void GetTaskByIdTest(bool isAuth)
+        {
+            var manager = CreateApiManager();
+            if (isAuth)
+            {
+                var result = await manager.Autorizate(new AutorizationRequest() { UserName = "andrew", Password = "SuperPass" });
+            }
+            var str = await manager.GetTaskById(3);
+            if (isAuth)
+            {
+                Assert.AreEqual(str.ErrorCode, 0);
+                Assert.NotNull(str.Result);
+            }
+            else
+            {
+                Assert.AreNotEqual(str.ErrorCode, 0);
+            }
         }
       
 

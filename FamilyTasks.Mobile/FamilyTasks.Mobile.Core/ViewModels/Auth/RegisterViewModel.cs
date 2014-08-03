@@ -35,7 +35,7 @@ namespace FamilyTasks.Mobile.Core.ViewModels.Auth
                     _apiManager.Register(new RegistrationRequest()
                     {
                         ConfirmPassword = RegisterInfoModel.ConfirmPassword,
-                        Email = RegisterInfoModel.Login,
+                        Phone = RegisterInfoModel.Phone,
                         Password = RegisterInfoModel.Password
                     });
             if (result.ErrorCode == 0)
@@ -63,7 +63,7 @@ namespace FamilyTasks.Mobile.Core.ViewModels.Auth
     public class RegisterModel:MvxNotifyPropertyChanged
     {
         private string _password;
-        private string _login;
+        private string _phone;
         private string _confirmPassword;
 
         public string ConfirmPassword
@@ -86,13 +86,13 @@ namespace FamilyTasks.Mobile.Core.ViewModels.Auth
                 base.RaisePropertyChanged(() => Password);
             }
         }
-        public string Login
+        public string Phone
         {
-            get { return _login; }
+            get { return _phone; }
             set
             {
-                _login = value;
-                base.RaisePropertyChanged(() => Login);
+                _phone = value;
+                base.RaisePropertyChanged(() => Phone);
             }
         }
     }

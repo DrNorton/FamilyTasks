@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FamilyTasks.Mobile.Api.Core.Base;
 using FamilyTasks.Mobile.Api.Request;
+using FamilyTasks.Mobile.Api.Request.Base;
 using FamilyTasks.Mobile.Api.Response;
 using FamilyTasks.Mobile.Api.Settings;
 using RestSharp.Portable;

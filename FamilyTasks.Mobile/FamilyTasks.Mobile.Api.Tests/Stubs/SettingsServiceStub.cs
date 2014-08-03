@@ -12,7 +12,7 @@ namespace FamilyTasks.Mobile.Api.Tests.Stubs
         private Token _token;
         public Uri BaseUrl
         {
-            get { return new Uri(@"http://familytasksapi.azurewebsites.net/"); }
+            get { return new Uri(@"http://localhost:63624/"); }
         }
 
         public Token Token

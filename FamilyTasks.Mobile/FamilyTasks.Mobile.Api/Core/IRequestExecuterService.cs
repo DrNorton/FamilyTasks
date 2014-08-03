@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using FamilyTasks.Mobile.Api.Request;
+using FamilyTasks.Mobile.Api.Request.Base;
 using FamilyTasks.Mobile.Api.Response;
 using FamilyTasks.Mobile.Api.Settings;
 

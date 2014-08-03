@@ -5,8 +5,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using FamilyTasks.Mobile.Api.Exceptions;
 using FamilyTasks.Mobile.Api.Request;
+using FamilyTasks.Mobile.Api.Request.Base;
 using FamilyTasks.Mobile.Api.Response;
 using FamilyTasks.Mobile.Api.Settings;
+using Newtonsoft.Json;
 using RestSharp.Portable;
 using RestSharp.Portable.Deserializers;
 
@@ -125,9 +127,16 @@ namespace FamilyTasks.Mobile.Api.Core
         public async Task<Response<T>> ExecuteRequest<T>(BaseRequest request, bool useCache = false)
         {
             var restRequest = GetRequestAndPrepareWithToken(request.MethodName);
-            restRequest.Method=HttpMethod.Post;
-         
-            restRequest.AddParameter("application/json", request, ParameterType.RequestBody);
+            restRequest.Method=request.Method;
+            if (request.Method == HttpMethod.Post)
+            {
+                restRequest.AddParameter("application/json", request, ParameterType.RequestBody);
+            }
+            else
+            {
+                restRequest.AddParameter("param", JsonConvert.SerializeObject(request),ParameterType.QueryString);
+            }
+          
             
             Debug.WriteLine("отправлен запрос {0}",_client.BuildUrl(restRequest).AbsoluteUri);
             return await Execute<T>(restRequest);

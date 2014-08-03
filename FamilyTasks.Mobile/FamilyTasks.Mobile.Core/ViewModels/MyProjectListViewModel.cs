@@ -31,7 +31,7 @@ namespace FamilyTasks.Mobile.Core.ViewModels
 
         public async override void Start()
         {
-            MyProjects=await _apiManager.GetProjectsList();
+            MyProjects=await _apiManager.GetMyProjects();
             base.Start();
         }
     }

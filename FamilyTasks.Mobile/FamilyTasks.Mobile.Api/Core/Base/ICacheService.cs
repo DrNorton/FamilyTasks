@@ -1,4 +1,5 @@
 ﻿using FamilyTasks.Mobile.Api.Request;
+using FamilyTasks.Mobile.Api.Request.Base;
 using FamilyTasks.Mobile.Api.Response;
 
 namespace FamilyTasks.Mobile.Api.Core.Base

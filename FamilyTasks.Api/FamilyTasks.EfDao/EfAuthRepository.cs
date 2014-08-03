@@ -19,9 +19,10 @@ namespace FamilyTasks.EfDao
         public async Task<IdentityResult> RegisterUser(CreateUserDto createUserDto)
         {
             var user = Db.Set<User>().Create();
-            user.Email = createUserDto.Email;
-            user.FirstName = createUserDto.DisplayName;
+            user.Phone = createUserDto.Phone;
             user.Password = createUserDto.Password;
+            user.Profile = Db.Set<Profile>().Create();
+            user.Profile.Id = user.Id;
             Db.Set<User>().Add(user);
             Db.SaveChanges();
             return IdentityResult.Success;
@@ -29,7 +30,7 @@ namespace FamilyTasks.EfDao
 
         public async Task<IdentityUser> FindUser(string userName, string password)
         {
-            var user = Db.Set<User>().FirstOrDefault(x => x.FirstName == userName);
+            var user = Db.Set<User>().FirstOrDefault(x => x.Phone == userName);
 
            if (user != null)
            {

@@ -4,6 +4,7 @@ using FamilyTasks.Dao.Repositories;
 using FamilyTasks.EfDao;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
+using Task = System.Threading.Tasks.Task;
 
 namespace FamilyTasks.Api.Controller
 {
