@@ -8,28 +8,28 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FamilyTasks.EfDao
 {
-    public class EfAuthRepository : IAuthRepository, IDisposable
+    public class EfAuthRepository : GenericRepository<User>, IAuthRepository 
     {
-        private readonly EfContext _context;
-        public EfAuthRepository()
+        public EfAuthRepository(EfContext context)
+            : base(context)
         {
-            _context = new EfContext();
+
         }
 
         public async Task<IdentityResult> RegisterUser(CreateUserDto createUserDto)
         {
-            var user = _context.Set<User>().Create();
+            var user = Db.Set<User>().Create();
             user.Email = createUserDto.Email;
             user.FirstName = createUserDto.DisplayName;
             user.Password = createUserDto.Password;
-            _context.Set<User>().Add(user);
-            _context.SaveChanges();
+            Db.Set<User>().Add(user);
+            Db.SaveChanges();
             return IdentityResult.Success;
         }
 
         public async Task<IdentityUser> FindUser(string userName, string password)
         {
-           var user = _context.Set<User>().FirstOrDefault(x => x.FirstName == userName);
+            var user = Db.Set<User>().FirstOrDefault(x => x.FirstName == userName);
 
            if (user != null)
            {
@@ -37,11 +37,6 @@ namespace FamilyTasks.EfDao
            }
 
            return null;
-        }
-
-        public void Dispose()
-        {
-           _context.Dispose();
         }
     }
 }

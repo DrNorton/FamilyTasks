@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FamilyTasks.Database", "FamilyTasks.Database\FamilyTasks.Database.sqlproj", "{96FDC70E-5000-40D7-9BFD-CCB31105B18E}"
 EndProject
