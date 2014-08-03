@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
+using FamilyTasks.Dao.Repositories;
 using FamilyTasks.EfDao;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security.OAuth;
@@ -8,6 +9,12 @@ namespace FamilyTasks.Api.Controller
 {
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
+        private readonly IAuthRepository _authRepository;
+
+        public SimpleAuthorizationServerProvider(IAuthRepository authRepository)
+        {
+            _authRepository = authRepository;
+        }
 
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
@@ -18,16 +25,12 @@ namespace FamilyTasks.Api.Controller
         {
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
-
-            using (var repo = new EfAuthRepository())
+            IdentityUser user = await _authRepository.FindUser(context.UserName, context.Password);
+            
+            if (user == null)
             {
-                IdentityUser user = await repo.FindUser(context.UserName, context.Password);
-               
-                if (user == null)
-                {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
-                    return;
-                }
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
