@@ -4,6 +4,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using FamilyTasks.Api;
 using FamilyTasks.Api.Controller;
+using FamilyTasks.Dao.Repositories;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 
@@ -20,8 +21,9 @@ namespace FamilyTasks.Dependencies.Castle.Installers
                         AllowInsecureHttp = true,
                         TokenEndpointPath = new PathString("/token"),
                         AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                        Provider = new SimpleAuthorizationServerProvider()
-                    }));
+                        Provider = new SimpleAuthorizationServerProvider(kernel.Resolve<IAuthRepository>())
+                    })
+                    .LifestyleTransient());
         }
     }
 }
