@@ -57,11 +57,22 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Users.sql" />
+    <Build Include="Tables\Profiles.sql" />
+    <Build Include="Tables\Projects.sql" />
+    <Build Include="Tables\Tasks.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\ProjectMembers.sql" />
+    <Build Include="Tables\AttachedFiles.sql" />
+    <Build Include="Tables\TasksAttachedFiles.sql" />
+    <Build Include="Tables\ProjectAttachedFiles.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="FamilyTasks.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\UsersRelationships.sql" />
   </ItemGroup>
 </Project>
