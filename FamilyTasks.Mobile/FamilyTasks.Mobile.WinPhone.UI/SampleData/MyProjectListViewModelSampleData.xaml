@@ -1,0 +1,57 @@
+﻿<ViewModels:MyProjectListViewModel xmlns:ViewModels="clr-namespace:FamilyTasks.Mobile.Core.ViewModels;assembly=FamilyTasks.Mobile.Core" xmlns:Response="clr-namespace:FamilyTasks.Mobile.Api.Response;assembly=FamilyTasks.Mobile.Api" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:ViewModels1="clr-namespace:Cirrious.MvvmCross.ViewModels;assembly=Cirrious.MvvmCross">
+	<ViewModels:MyProjectListViewModel.MyProjects>
+		<Response:ProjectResponse Description="Class curabitur" Name="Aliquam nam maecenas">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Curae duis" Name="Sed cras integer praesent">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Etiam mauris vestibulum" Name="Quisque donec aenean">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Fusce adipiscing convallis dignissim" Name="Phasellus accumsan nunc consequat nullam">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Morbi auctor bibendum dictumst" Name="Amet lorem aptent">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Vivamus cursus fermentum arcu" Name="Ante congue elementum eleifend facilisis">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Fringilla parturient" Name="Diam dis dictum">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Nulla est" Name="Eget elit vestibulum">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Hendrerit lectus vestibulum himenaeos" Name="Habitasse facilisi hac leo faucibus">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+		<Response:ProjectResponse Description="Parturient libero imperdiet" Name="Adipiscing mus proin">
+			<Response:ProjectResponse.Id>
+				<System:Int64/>
+			</Response:ProjectResponse.Id>
+		</Response:ProjectResponse>
+	</ViewModels:MyProjectListViewModel.MyProjects>
+	<ViewModels:MyProjectListViewModel.RequestedBy>
+		<ViewModels1:MvxRequestedBy AdditionalInfo="Nec vestibulum aliquam malesuada" Type="UserAction"/>
+	</ViewModels:MyProjectListViewModel.RequestedBy>
+</ViewModels:MyProjectListViewModel>

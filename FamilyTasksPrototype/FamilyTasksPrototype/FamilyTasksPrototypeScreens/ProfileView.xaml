@@ -1,0 +1,159 @@
+﻿<mockups:WindowsPhoneChrome 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mockups="clr-namespace:Microsoft.Expression.Prototyping.WindowsPhone.Mockups;assembly=WindowsPhone.Mockups"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:wp="http://schemas.microsoft.com/prototyping/2010/controls/windowsphone"
+    mc:Ignorable="d"
+    x:Class="FamilyTasksPrototypeScreens.ProfileView"
+    x:Name="PhoneChrome">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Landscape" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Landscape"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Portrait" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Portrait"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <mockups:WindowsPhoneChrome.BackButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateBackAction />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/back.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.BackButton>
+
+    <mockups:WindowsPhoneChrome.HomeButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.Home" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/home.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.HomeButton>
+
+    <mockups:WindowsPhoneChrome.SearchButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.Search" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/search.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.SearchButton>
+
+    <Grid x:Name="LayoutRoot">
+        <VisualStateManager.CustomVisualStateManager>
+            <ei:ExtendedVisualStateManager />
+        </VisualStateManager.CustomVisualStateManager>
+        <VisualStateManager.VisualStateGroups>
+        	<VisualStateGroup x:Name="CommonStates"
+        		ei:ExtendedVisualStateManager.UseFluidLayout="True">
+        		<VisualState x:Name="Portrait" />
+        		<VisualState x:Name="Landscape">
+        			<Storyboard>
+        				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(WindowsPhoneChrome.PageOrientation)"
+        					Storyboard.TargetName="PhoneChrome">
+        					<DiscreteObjectKeyFrame KeyTime="0">
+        						<DiscreteObjectKeyFrame.Value>
+        							<mockups:PageOrientation>Landscape</mockups:PageOrientation>
+        						</DiscreteObjectKeyFrame.Value>
+        					</DiscreteObjectKeyFrame>
+        				</ObjectAnimationUsingKeyFrames>
+        			</Storyboard>
+        		</VisualState>
+        	</VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    	<wp:Panorama Margin="0,8,-262,0" Title="Контакты"  >
+    		
+    		<wp:PanoramaItem Header="Все">
+    			<Grid>
+    				<Image HorizontalAlignment="Left" Width="138" Source="AppBarIcons/avatar.jpg" Height="93" VerticalAlignment="Top"/>
+    				<TextBlock HorizontalAlignment="Left" Margin="142,0,0,0" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Дмитрий Иванов" VerticalAlignment="Top" RenderTransformOrigin="0.368,-0.5" Width="185" FontWeight="Bold" FontSize="24"/>
+    				<TextBlock HorizontalAlignment="Left" Margin="142,34,0,0" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="+79166728879" VerticalAlignment="Top" RenderTransformOrigin="-0.25,0.36" FontStyle="Italic"/>
+    				<TextBlock HorizontalAlignment="Left" Height="30" Margin="8,118,0,0" Style="{StaticResource PhoneTextTitle3Style-Sketch}" TextWrapping="Wrap" Text="Друзья" VerticalAlignment="Top" Width="130" FontWeight="Bold" FontSize="29.333"/>
+    				<Rectangle Fill="#FFA6A6F1" HorizontalAlignment="Left" Margin="8,171,0,0" Stroke="Black" Width="42" Height="40" VerticalAlignment="Top"/>
+    				<Rectangle HorizontalAlignment="Left" Margin="8,215,0,0" Stroke="Black" Width="42" Fill="#FF606060" Height="40" VerticalAlignment="Top"/>
+    				<Rectangle HorizontalAlignment="Left" Margin="8,0,0,216" Stroke="Black" Width="42" Fill="#FF606060" Height="40" VerticalAlignment="Bottom"/>
+    				<Rectangle HorizontalAlignment="Left" Margin="8,0,0,172" Stroke="Black" Width="42" Fill="#FF606060" Height="40" VerticalAlignment="Bottom"/>
+    				<Rectangle HorizontalAlignment="Left" Margin="8,0,0,128" Stroke="Black" Width="42" Fill="#FF606060" Height="40" VerticalAlignment="Bottom"/>
+    				<Rectangle HorizontalAlignment="Left" Margin="8,0,0,84" Stroke="Black" Width="42" Fill="#FF606060" Height="40" VerticalAlignment="Bottom"/>
+    				<Rectangle HorizontalAlignment="Left" Margin="8,0,0,40" Stroke="Black" Width="42" Fill="#FF606060" Height="40" VerticalAlignment="Bottom"/>
+    				<Rectangle HorizontalAlignment="Left" Margin="8,0,0,-4" Stroke="Black" Width="42" Fill="#FF606060" Height="40" VerticalAlignment="Bottom"/>
+    				<TextBlock Margin="66,171,222,0" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Азамат" VerticalAlignment="Top" RenderTransformOrigin="-0.264,0.64" Height="27" FontSize="29.333"/>
+    				<TextBlock Margin="66,215,222,0" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Александр" VerticalAlignment="Top" RenderTransformOrigin="-0.264,0.64" Height="27" FontSize="29.333"/>
+    				<TextBlock Margin="66,0,222,229" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Алексанлр Витальевич" VerticalAlignment="Bottom" RenderTransformOrigin="-0.264,0.64" Height="27" FontSize="29.333"/>
+    				<TextBlock Margin="66,0,222,185" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Альберт" VerticalAlignment="Bottom" RenderTransformOrigin="-0.264,0.64" Height="27" FontSize="29.333"/>
+    				<TextBlock Margin="66,0,222,141" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Андрей Дмитриевич" VerticalAlignment="Bottom" RenderTransformOrigin="-0.264,0.64" Height="27" FontSize="29.333"/>
+    				<TextBlock Margin="66,0,222,97" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Андрей работа" VerticalAlignment="Bottom" RenderTransformOrigin="-0.264,0.64" Height="27" FontSize="29.333"/>
+    				<TextBlock Margin="66,0,222,53" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Аржанова Ольга" VerticalAlignment="Bottom" RenderTransformOrigin="-0.264,0.64" Height="27" FontSize="29.333"/>
+    				<TextBlock Margin="66,0,222,9" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="Артем Дмитриевич" VerticalAlignment="Bottom" RenderTransformOrigin="-0.264,0.64" Height="27" FontSize="29.333"/>
+    				<mockups:ApplicationBarMockup Margin="-20,0,207,0">
+    					<mockups:ApplicationBarMockup.IconButtonsContent>
+    						<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+    							<mockups:ApplicationBarIconButton Content="Редактировать" ImageSource="/AppBarIcons/edit.png">
+    								<i:Interaction.Triggers>
+    									<i:EventTrigger EventName="Click">
+    										<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.EditView"/>
+    									</i:EventTrigger>
+    								</i:Interaction.Triggers>
+    							</mockups:ApplicationBarIconButton>
+    							<mockups:ApplicationBarIconButton Content="Добавить" ImageSource="/AppBarIcons/add.png">
+    								<i:Interaction.Triggers>
+    									<i:EventTrigger EventName="Click">
+    										<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.AddFriendView"/>
+    									</i:EventTrigger>
+    								</i:Interaction.Triggers>
+    							</mockups:ApplicationBarIconButton>
+    							<mockups:ApplicationBarIconButton Content="Удалить" ImageSource="/AppBarIcons/cancel.png"/>
+    						</StackPanel>
+    					</mockups:ApplicationBarMockup.IconButtonsContent>
+    					<mockups:ApplicationBarMockup.MenuItemsContent>
+    						<StackPanel>
+    							<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="menuitem 1"/>
+    							<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="menuitem 2"/>
+    						</StackPanel>
+    					</mockups:ApplicationBarMockup.MenuItemsContent>
+    				</mockups:ApplicationBarMockup>
+    			</Grid>
+    		</wp:PanoramaItem>
+    		<wp:PanoramaItem Header="Новости">
+	    			<Grid>
+	    				<TextBox Height="57" Text="Проект начал официально работать" Margin="8,8,225,0" Style="{StaticResource Note-Sketch}" TextWrapping="Wrap" RenderTransformOrigin="-0.075,-0.311" VerticalAlignment="Top"/>
+	    				<TextBox Height="57" Text="Проект начал официально работать" Margin="8,88,225,0" Style="{StaticResource Note-Sketch}" TextWrapping="Wrap" RenderTransformOrigin="-0.075,-0.311" VerticalAlignment="Top"/>
+	    			</Grid>
+    		</wp:PanoramaItem>
+    	</wp:Panorama>
+    </Grid>
+</mockups:WindowsPhoneChrome>
