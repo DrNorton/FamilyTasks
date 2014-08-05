@@ -11,9 +11,9 @@ using Microsoft.Expression.Prototyping.WindowsPhone.Mockups;
 
 namespace FamilyTasksPrototypeScreens
 {
-	public partial class Copy_of_GetMyTasks : WindowsPhoneChrome
+	public partial class FriendsView : WindowsPhoneChrome
 	{
-		public Copy_of_GetMyTasks()
+		public FriendsView()
 		{
 			// Required to initialize variables
 			InitializeComponent();

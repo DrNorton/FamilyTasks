@@ -94,8 +94,8 @@
       <FileName>GetMyTasks.xaml</FileName>
       <Annotations />
       <Position>
-        <X>582</X>
-        <Y>-39</Y>
+        <X>714</X>
+        <Y>-63</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -137,13 +137,49 @@
     </Screen>
     <Screen>
       <Type>Navigation</Type>
-      <ClassName>FamilyTasksPrototypeScreens.Copy_of_GetMyTasks</ClassName>
-      <DisplayName>ProjectsView</DisplayName>
-      <FileName>Copy_of_GetMyTasks.xaml</FileName>
+      <ClassName>FamilyTasksPrototypeScreens.MyProjectsList</ClassName>
+      <DisplayName>MyProjectsList</DisplayName>
+      <FileName>MyProjectsList.xaml</FileName>
       <Annotations />
       <Position>
-        <X>774</X>
-        <Y>-8</Y>
+        <X>267</X>
+        <Y>-64</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>FamilyTasksPrototypeScreens.AddProject</ClassName>
+      <DisplayName>AddProject</DisplayName>
+      <FileName>AddProject.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>757</X>
+        <Y>105</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>FamilyTasksPrototypeScreens.ProjectView</ClassName>
+      <DisplayName>ProjectView</DisplayName>
+      <FileName>ProjectView.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>499</X>
+        <Y>-83</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>FamilyTasksPrototypeScreens.FriendsView</ClassName>
+      <DisplayName>FriendsView</DisplayName>
+      <FileName>FriendsView.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>714</X>
+        <Y>-23</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -409,29 +445,113 @@
       <VisualTag>0</VisualTag>
     </Connection>
     <Connection>
-      <Source>FamilyTasksPrototypeScreens.Copy_of_GetMyTasks</Source>
+      <Source>FamilyTasksPrototypeScreens.MyProjectsList</Source>
       <Target>FamilyTasksPrototypeScreens.Home</Target>
       <Type>Navigation</Type>
       <TransitionType>Fade</TransitionType>
       <VisualTag>0</VisualTag>
     </Connection>
     <Connection>
-      <Source>FamilyTasksPrototypeScreens.Copy_of_GetMyTasks</Source>
+      <Source>FamilyTasksPrototypeScreens.MyProjectsList</Source>
       <Target>FamilyTasksPrototypeScreens.Search</Target>
       <Type>Navigation</Type>
       <TransitionType>Fade</TransitionType>
       <VisualTag>0</VisualTag>
     </Connection>
     <Connection>
-      <Source>FamilyTasksPrototypeScreens.Copy_of_GetMyTasks</Source>
-      <Target>FamilyTasksPrototypeScreens.Screen_1</Target>
+      <Source>FamilyTasksPrototypeScreens.Screen_1</Source>
+      <Target>FamilyTasksPrototypeScreens.MyProjectsList</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.AddProject</Source>
+      <Target>FamilyTasksPrototypeScreens.Home</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.AddProject</Source>
+      <Target>FamilyTasksPrototypeScreens.Search</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.MyProjectsList</Source>
+      <Target>FamilyTasksPrototypeScreens.AddProject</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectView</Source>
+      <Target>FamilyTasksPrototypeScreens.Home</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectView</Source>
+      <Target>FamilyTasksPrototypeScreens.Search</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.AddProject</Source>
+      <Target>FamilyTasksPrototypeScreens.ProjectView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.MyProjectsList</Source>
+      <Target>FamilyTasksPrototypeScreens.ProjectView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.FriendsView</Source>
+      <Target>FamilyTasksPrototypeScreens.Home</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.FriendsView</Source>
+      <Target>FamilyTasksPrototypeScreens.Search</Target>
       <Type>Navigation</Type>
       <TransitionType>Fade</TransitionType>
       <VisualTag>0</VisualTag>
     </Connection>
     <Connection>
       <Source>FamilyTasksPrototypeScreens.Screen_1</Source>
-      <Target>FamilyTasksPrototypeScreens.Copy_of_GetMyTasks</Target>
+      <Target>FamilyTasksPrototypeScreens.FriendsView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.FriendsView</Source>
+      <Target>FamilyTasksPrototypeScreens.AddFriendView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectView</Source>
+      <Target>FamilyTasksPrototypeScreens.AddFriendView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectView</Source>
+      <Target>FamilyTasksPrototypeScreens.FriendsView</Target>
       <Type>Navigation</Type>
       <TransitionType>Fade</TransitionType>
       <VisualTag>0</VisualTag>
@@ -484,7 +604,7 @@
     <Zoom>0.75</Zoom>
     <Center>
       <X>638.78922558922545</X>
-      <Y>66.9628330928331</Y>
+      <Y>48.962833092833094</Y>
     </Center>
   </ViewState>
 </Data>

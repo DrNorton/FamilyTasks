@@ -1,0 +1,140 @@
+﻿<mockups:WindowsPhoneChrome 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mockups="clr-namespace:Microsoft.Expression.Prototyping.WindowsPhone.Mockups;assembly=WindowsPhone.Mockups"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:wp="http://schemas.microsoft.com/prototyping/2010/controls/windowsphone"
+    mc:Ignorable="d"
+    x:Class="FamilyTasksPrototypeScreens.MyProjectsList"
+    x:Name="PhoneChrome">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Landscape" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Landscape"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Portrait" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Portrait"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <mockups:WindowsPhoneChrome.BackButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateBackAction />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/back.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.BackButton>
+
+    <mockups:WindowsPhoneChrome.HomeButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.Home" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/home.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.HomeButton>
+
+    <mockups:WindowsPhoneChrome.SearchButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.Search" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/search.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.SearchButton>
+
+    <Grid x:Name="LayoutRoot">
+        <VisualStateManager.CustomVisualStateManager>
+            <ei:ExtendedVisualStateManager />
+        </VisualStateManager.CustomVisualStateManager>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates"
+                              ei:ExtendedVisualStateManager.UseFluidLayout="True">
+                <VisualState x:Name="Portrait" />
+                <VisualState x:Name="Landscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(WindowsPhoneChrome.PageOrientation)"
+                                                       Storyboard.TargetName="PhoneChrome">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <mockups:PageOrientation>Landscape</mockups:PageOrientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+		<Grid>
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonDown">
+					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProjectView"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+    	<TextBlock Margin="123,8,112,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Мои проекты" VerticalAlignment="Top" FontSize="48"/>
+    	<Image HorizontalAlignment="Left" Height="107" Margin="22,82,0,0" VerticalAlignment="Top" Width="109" Source="AppBarIcons/images (4).jpg"/>
+    	<TextBlock Height="27" Margin="135,82,219,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="День рождения" VerticalAlignment="Top" FontSize="21.333"/>
+    	<TextBlock Height="76" Margin="135,113,16,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="{StaticResource PressedBackground-Sketch}" FontStyle="Italic"><Run Text="днюха димона, пьянка гулянка. Встречаемся в 12 часов 30.15.2040 года на станции метро "/><Run Text="Путинская. Идём и закупаем продукты. Берите сви продовольственные к"/><Run Text="арточки. Не за..."/></TextBlock>
+    	<Image HorizontalAlignment="Left" Height="107" Margin="22,204,0,0" VerticalAlignment="Top" Width="109" Source="AppBarIcons/images (4).jpg"/>
+    	<TextBlock Height="27" Margin="135,204,219,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Новый год" VerticalAlignment="Top" FontSize="21.333"/>
+    	<TextBlock Height="76" Margin="135,235,16,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="{StaticResource PressedBackground-Sketch}" FontStyle="Italic"><Run Text="днюха димона, пьянка гулянка. Встречаемся в 12 часов 30.15.2040 года на станции метро "/><Run Text="Путинская. Идём и закупаем продукты. Берите сви продовольственные к"/><Run Text="арточки. Не за..."/></TextBlock>
+    	<Image HorizontalAlignment="Left" Margin="22,319,0,374" Width="109" Source="AppBarIcons/images (4).jpg"/>
+    	<TextBlock Height="27" Margin="135,319,219,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Выпускной" VerticalAlignment="Top" FontSize="21.333"/>
+    	<TextBlock Margin="135,350,16,374" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Foreground="{StaticResource PressedBackground-Sketch}" FontStyle="Italic"><Run Text="днюха димона, пьянка гулянка. Встречаемся в 12 часов 30.15.2040 года на станции метро "/><Run Text="Путинская. Идём и закупаем продукты. Берите сви продовольственные к"/><Run Text="арточки. Не за..."/></TextBlock>
+    	<Image HorizontalAlignment="Left" Height="107" Margin="22,0,0,260" VerticalAlignment="Bottom" Width="109" Source="AppBarIcons/images (4).jpg"/>
+    	<TextBlock Height="27" Margin="135,0,219,340" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="День рождения" VerticalAlignment="Bottom" FontSize="21.333"/>
+    	<TextBlock Height="76" Margin="135,0,16,260" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Bottom" Foreground="{StaticResource PressedBackground-Sketch}" FontStyle="Italic"><Run Text="днюха димона, пьянка гулянка. Встречаемся в 12 часов 30.15.2040 года на станции метро "/><Run Text="Путинская. Идём и закупаем продукты. Берите сви продовольственные к"/><Run Text="арточки. Не за..."/></TextBlock>
+    	</Grid>
+		<mockups:ApplicationBarMockup>
+    		<mockups:ApplicationBarMockup.IconButtonsContent>
+    			<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+    				<mockups:ApplicationBarIconButton Content="Новый проект" ImageSource="/AppBarIcons/add.png">
+    					<i:Interaction.Triggers>
+    						<i:EventTrigger EventName="Click">
+    							<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.AddProject"/>
+    						</i:EventTrigger>
+    					</i:Interaction.Triggers>
+    				</mockups:ApplicationBarIconButton>
+    			</StackPanel>
+    		</mockups:ApplicationBarMockup.IconButtonsContent>
+    		<mockups:ApplicationBarMockup.MenuItemsContent>
+    			<StackPanel>
+    				<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="menuitem 1"/>
+    				<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="menuitem 2"/>
+    			</StackPanel>
+    		</mockups:ApplicationBarMockup.MenuItemsContent>
+    	</mockups:ApplicationBarMockup>
+    	<Rectangle Fill="#FFF4F4F5" Height="76" Margin="22,0,16,291" Stroke="Black" VerticalAlignment="Bottom"/>
+    	<TextBlock Height="27" Margin="149,0,205,323" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Удалить" VerticalAlignment="Bottom" FontSize="21.333"/>
+    </Grid>
+</mockups:WindowsPhoneChrome>

@@ -9,7 +9,7 @@
     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
     xmlns:wp="http://schemas.microsoft.com/prototyping/2010/controls/windowsphone"
     mc:Ignorable="d"
-    x:Class="FamilyTasksPrototypeScreens.ProfileView"
+    x:Class="FamilyTasksPrototypeScreens.AddProject"
     x:Name="PhoneChrome">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="OrientationChanged">
@@ -78,37 +78,37 @@
             <ei:ExtendedVisualStateManager />
         </VisualStateManager.CustomVisualStateManager>
         <VisualStateManager.VisualStateGroups>
-        	<VisualStateGroup x:Name="CommonStates"
-        		ei:ExtendedVisualStateManager.UseFluidLayout="True">
-        		<VisualState x:Name="Portrait" />
-        		<VisualState x:Name="Landscape">
-        			<Storyboard>
-        				<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(WindowsPhoneChrome.PageOrientation)"
-        					Storyboard.TargetName="PhoneChrome">
-        					<DiscreteObjectKeyFrame KeyTime="0">
-        						<DiscreteObjectKeyFrame.Value>
-        							<mockups:PageOrientation>Landscape</mockups:PageOrientation>
-        						</DiscreteObjectKeyFrame.Value>
-        					</DiscreteObjectKeyFrame>
-        				</ObjectAnimationUsingKeyFrames>
-        			</Storyboard>
-        		</VisualState>
-        	</VisualStateGroup>
+            <VisualStateGroup x:Name="CommonStates"
+                              ei:ExtendedVisualStateManager.UseFluidLayout="True">
+                <VisualState x:Name="Portrait" />
+                <VisualState x:Name="Landscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(WindowsPhoneChrome.PageOrientation)"
+                                                       Storyboard.TargetName="PhoneChrome">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <mockups:PageOrientation>Landscape</mockups:PageOrientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-    	<TextBlock Margin="157,8,156,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Профиль" VerticalAlignment="Top" FontSize="48"/>
-    	<Image HorizontalAlignment="Left" Width="138" Source="AppBarIcons/avatar.jpg" Height="93" VerticalAlignment="Top" Margin="24,98,0,0"/>
-    	<TextBlock Margin="166,98,129,0" Style="{StaticResource PhoneTextNormalStyle-Sketch}" TextWrapping="Wrap" Text="+791667298879" VerticalAlignment="Top" RenderTransformOrigin="0.368,-0.5" FontWeight="Bold" FontSize="24"/>
-    	<TextBox Margin="24,234,8,0" Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" Text="Дмитрий" VerticalAlignment="Top"/>
-    	<TextBlock HorizontalAlignment="Left" Margin="24,210,0,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Имя:" VerticalAlignment="Top" Width="83"/>
-    	<TextBox Margin="24,362,8,0" Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" Text="Дмитрий" VerticalAlignment="Top"/>
-    	<TextBlock HorizontalAlignment="Left" Margin="24,338,0,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="83"/>
-    	<TextBox Margin="166,132,8,0" Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" Text="Display Name" VerticalAlignment="Top"/>
-    	<TextBox Margin="24,296,8,0" Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" Text="Петушков" VerticalAlignment="Top"/>
-    	<TextBlock HorizontalAlignment="Left" Margin="24,272,0,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"><Run Text="Фамилия"/><Run Text=":"/></TextBlock>
+    	<TextBlock Margin="72,8,75,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Создание проекта" VerticalAlignment="Top" FontSize="48"/>
+    	<Image  HorizontalAlignment="Left" Height="107" Margin="22,82,0,0" VerticalAlignment="Top" Width="109" Source="AppBarIcons/images (4).jpg"/>
+    	<TextBox Margin="135,82,115,0" Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" VerticalAlignment="Top" Text="Имя"/>
+    	<TextBox Margin="22,225,8,250" Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" Text="Описание"/>
     	<mockups:ApplicationBarMockup>
     		<mockups:ApplicationBarMockup.IconButtonsContent>
     			<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-    				<mockups:ApplicationBarIconButton Content="button 1" ImageSource="/AppBarIcons/save.png"/>
+    				<mockups:ApplicationBarIconButton Content="button 1" ImageSource="/AppBarIcons/save.png">
+    					<i:Interaction.Triggers>
+    						<i:EventTrigger EventName="Click">
+    							<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProjectView"/>
+    						</i:EventTrigger>
+    					</i:Interaction.Triggers>
+    				</mockups:ApplicationBarIconButton>
     			</StackPanel>
     		</mockups:ApplicationBarMockup.IconButtonsContent>
     		<mockups:ApplicationBarMockup.MenuItemsContent>

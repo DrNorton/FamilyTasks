@@ -75,11 +75,11 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="AuthView.xaml">
+    <Page Include="AddProject.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Copy_of_GetMyTasks.xaml">
+    <Page Include="AuthView.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -87,11 +87,23 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="FriendsView.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GetMyTasks.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MyProjectsList.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ProfileView.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProjectView.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -126,17 +138,20 @@
     <Compile Include="AddFriendView.xaml.cs">
       <DependentUpon>AddFriendView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddProject.xaml.cs">
+      <DependentUpon>AddProject.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppList.xaml.cs">
       <DependentUpon>AppList.xaml</DependentUpon>
     </Compile>
     <Compile Include="AuthView.xaml.cs">
       <DependentUpon>AuthView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Copy_of_GetMyTasks.xaml.cs">
-      <DependentUpon>Copy_of_GetMyTasks.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EditView.xaml.cs">
       <DependentUpon>EditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FriendsView.xaml.cs">
+      <DependentUpon>FriendsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="GetMyTasks.xaml.cs">
       <DependentUpon>GetMyTasks.xaml</DependentUpon>
@@ -144,8 +159,14 @@
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyProjectsList.xaml.cs">
+      <DependentUpon>MyProjectsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectView.xaml.cs">
+      <DependentUpon>ProjectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="RecoveryView.xaml.cs">
       <DependentUpon>RecoveryView.xaml</DependentUpon>
@@ -163,10 +184,16 @@
     <Compile Include="..\Properties\Version.cs">
       <Link>Properties\Version.cs</Link>
     </Compile>
+    <Resource Include="AppBarIcons\1404218825632.jpg" />
+    <Resource Include="AppBarIcons\1404816028-5894be39837c9ca2e59b1d80adcea024.png" />
+    <Resource Include="AppBarIcons\1404894180765.jpg" />
+    <Resource Include="AppBarIcons\1404902825305.jpg" />
+    <Resource Include="AppBarIcons\1407247393_Plus.png" />
     <Resource Include="AppBarIcons\avatar.jpg" />
     <Resource Include="AppBarIcons\images %283%29.jpg" />
     <Resource Include="AppBarIcons\images %284%29.jpg" />
     <Resource Include="AppBarIcons\password.png" />
+    <Resource Include="AppBarIcons\person.png" />
     <Resource Include="Fonts\BuxtonSketch.ttf" />
     <Resource Include="Fonts\SketchFlow Print.ttf" />
     <Resource Include="Fonts\SegoeMarker.ttf" />

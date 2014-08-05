@@ -7,7 +7,8 @@
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
     xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
-	 xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls"
+	xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls"
+	xmlns:wp="http://schemas.microsoft.com/prototyping/2010/controls/windowsphone"
     mc:Ignorable="d"
     x:Class="FamilyTasksPrototypeScreens.Screen_1"
     x:Name="PhoneChrome">
@@ -96,119 +97,139 @@
 				</VisualState>
 			</VisualStateGroup>
 		</VisualStateManager.VisualStateGroups>
-		<Grid HorizontalAlignment="Left" Width="173" Margin="27,248,0,379">
-			<i:Interaction.Triggers>
-				<i:EventTrigger EventName="MouseLeftButtonDown">
-					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.Copy_of_GetMyTasks"/>
-				</i:EventTrigger>
-			</i:Interaction.Triggers>
-			<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
-				Background="{StaticResource Accent-Sketch}"
-				Height="173"
-				Style="{StaticResource Rectangle-Sketch}"
-				Width="173" />
-			<Image Source="{x:Null}" />
-			<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
-				Style="{StaticResource TileText-Sketch}"
-				Text="Мои проекты"
-				VerticalAlignment="Bottom" />
-		</Grid>
-		<Grid HorizontalAlignment="Right" Width="173" Margin="0,248,55,379">
-			<i:Interaction.Triggers>
-				<i:EventTrigger EventName="MouseLeftButtonDown">
-					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.Screen_1" />
-				</i:EventTrigger>
-			</i:Interaction.Triggers>
-			<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
-				Background="{StaticResource Accent-Sketch}"
-				Height="173"
-				Style="{StaticResource Rectangle-Sketch}"
-				Width="173" />
-			<Image Source="{x:Null}" />
-			<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
-				Style="{StaticResource TileText-Sketch}"
-				Text="Настройки"
-				VerticalAlignment="Bottom" />
-		</Grid>
-		<Grid Margin="27,34,55,0" Height="173" VerticalAlignment="Top">
-			<i:Interaction.Triggers>
-				<i:EventTrigger EventName="MouseLeftButtonDown">
-					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.GetMyTasks"/>
-				</i:EventTrigger>
-			</i:Interaction.Triggers>
-			<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
-				Background="{StaticResource Accent-Sketch}"
-				Height="173"
-				Style="{StaticResource Rectangle-Sketch}"
-				Width="400" />
-			<Image 	 Source="{x:Null}" />
-			<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
-				Style="{StaticResource TileText-Sketch}"
-				Text="Мои задачи"
-				VerticalAlignment="Bottom" />
-		</Grid>
-		<Grid HorizontalAlignment="Right" Width="173" Margin="0,248,55,379">
-			<i:Interaction.Triggers>
-				<i:EventTrigger EventName="MouseLeftButtonDown">
-					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.Screen_1" />
-				</i:EventTrigger>
-			</i:Interaction.Triggers>
-			<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
-				Background="{StaticResource Accent-Sketch}"
-				Height="173"
-				Style="{StaticResource Rectangle-Sketch}"
-				Width="173" />
-			<Image Source="{x:Null}" />
-			<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
-				Style="{StaticResource TileText-Sketch}"
-				Text="Настройки"
-				VerticalAlignment="Bottom" />
-		</Grid>
-		<Grid Margin="27,0,0,145" Height="173" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="173">
-			<i:Interaction.Triggers>
-				<i:EventTrigger EventName="MouseLeftButtonDown">
-					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.AuthView"/>
-				</i:EventTrigger>
-			</i:Interaction.Triggers>
-			<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
-				Background="{StaticResource Accent-Sketch}"
-				Height="173"
-				Style="{StaticResource Rectangle-Sketch}"
-				Width="173" />
-			<Image Source="{x:Null}" >
-				<i:Interaction.Triggers>
-					<i:EventTrigger EventName="MouseLeftButtonDown">
-						<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.AuthView"/>
-					</i:EventTrigger>
-				</i:Interaction.Triggers>
-			</Image>
-			<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
-				Style="{StaticResource TileText-Sketch}"
-				Text="Авторизация"
-				VerticalAlignment="Bottom" />
-		</Grid>
-		<Grid Margin="0,0,55,145" Height="173" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="173">
-			<i:Interaction.Triggers>
-				<i:EventTrigger EventName="MouseLeftButtonDown">
-					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProfileView"/>
-				</i:EventTrigger>
-			</i:Interaction.Triggers>
-			<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
-				Background="{StaticResource Accent-Sketch}"
-				Height="173"
-				Style="{StaticResource Rectangle-Sketch}"
-				Width="173" />
-			<Image Source="{x:Null}" >
-				<i:Interaction.Triggers>
-					<i:EventTrigger EventName="MouseLeftButtonDown">
-						<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProfileView"/>
-					</i:EventTrigger>
-				</i:Interaction.Triggers>
-			</Image>
-			<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
-				Style="{StaticResource TileText-Sketch}"
-				Text="Профиль"
-				VerticalAlignment="Bottom" />
-		</Grid>
+		
+    	
+			<wp:Panorama  Title="panorama" Margin="0,0,0,76">
+				<wp:PanoramaItem Header="Меню">
+    			<Grid>
+    				<StackPanel>
+    				 		<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Мои задачи" VerticalAlignment="Top" FontSize="48" />
+							<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Мои проекты" VerticalAlignment="Top" FontSize="48" >
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.MyProjectsList"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+							</TextBlock>
+							<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Мои друзья" VerticalAlignment="Top" FontSize="48" >
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.FriendsView"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+							</TextBlock>
+					</StackPanel>
+    				
+    			</Grid>
+    		</wp:PanoramaItem>
+			<wp:PanoramaItem Header="Проекты">
+    			<Grid>
+    				<Grid.RowDefinitions>
+    					<RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>	
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>		
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+			<Grid HorizontalAlignment="Left" Margin="10" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+    	
+    		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
+    			Background="{StaticResource Accent-Sketch}"
+    			Height="173"
+    			Style="{StaticResource Rectangle-Sketch}"
+    			Width="173" />
+    		<Image Source="AppBarIcons/1407247393_Plus.png" />
+    		<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
+    			Style="{StaticResource TileText-Sketch}"
+    			Text="День рождения"
+    			VerticalAlignment="Bottom" />
+    	</Grid>
+		
+		<Grid HorizontalAlignment="Left" Margin="10" Grid.Column="1" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+    	
+    		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
+    			Background="{StaticResource Accent-Sketch}"
+    			Height="173"
+    			Style="{StaticResource Rectangle-Sketch}"
+    			Width="173" />
+    		<Image Source="AppBarIcons/images (3).jpg" />
+    		<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
+    			Style="{StaticResource TileText-Sketch}"
+    			Text="Новый год"
+    			VerticalAlignment="Bottom" />
+    	</Grid>
+		
+		<Grid HorizontalAlignment="Left" Margin="10" Grid.Column="0" Grid.Row="1" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+    	
+    		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
+    			Background="{StaticResource Accent-Sketch}"
+    			Height="173"
+    			Style="{StaticResource Rectangle-Sketch}"
+    			Width="173" />
+    		<Image Source="AppBarIcons/images (3).jpg" />
+    		<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
+    			Style="{StaticResource TileText-Sketch}"
+    			Text="День рождения"
+    			VerticalAlignment="Bottom" />
+    	</Grid>
+		<Grid HorizontalAlignment="Left" Margin="10" Grid.Column="1" Grid.Row="1" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+    	
+    		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
+    			Background="{StaticResource Accent-Sketch}"
+    			Height="173"
+    			Style="{StaticResource Rectangle-Sketch}"
+    			Width="173" />
+    		<Image Source="AppBarIcons/images (3).jpg" />
+    		<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
+    			Style="{StaticResource TileText-Sketch}"
+    			Text="День рождения"
+    			VerticalAlignment="Bottom" />
+    	</Grid>
+		<Grid HorizontalAlignment="Left" Margin="10" Grid.Column="0" Grid.Row="2" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+    	
+    		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
+    			Background="{StaticResource Accent-Sketch}"
+    			Height="173"
+    			Style="{StaticResource Rectangle-Sketch}"
+    			Width="173" />
+    		<Image Source="AppBarIcons/images (3).jpg" />
+    		<TextBlock Margin="{StaticResource PhoneHorizontalMargin}"
+    			Style="{StaticResource TileText-Sketch}"
+    			Text="День рождения"
+    			VerticalAlignment="Bottom" />
+    	</Grid>
+			</Grid>
+    		</wp:PanoramaItem>
+			<wp:PanoramaItem Header="Обновления">
+    			<Grid/>
+    		</wp:PanoramaItem>
+			
+    	
+    		
+		
+    	</wp:Panorama>
+			<mockups:ApplicationBarMockup Background="Black">
+				<mockups:ApplicationBarMockup.IconButtonsContent>
+					<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+						<mockups:ApplicationBarIconButton Content="button 1" ImageSource="/AppBarIcons/home.png" Background="Black">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Click">
+									<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProfileView"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</mockups:ApplicationBarIconButton>
+						<mockups:ApplicationBarIconButton Content="button 2" ImageSource="/AppBarIcons/settings.png"/>
+					</StackPanel>
+				</mockups:ApplicationBarMockup.IconButtonsContent>
+				<mockups:ApplicationBarMockup.MenuItemsContent>
+					<StackPanel>
+						<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="menuitem 1"/>
+						<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="menuitem 2"/>
+					</StackPanel>
+				</mockups:ApplicationBarMockup.MenuItemsContent>
+			</mockups:ApplicationBarMockup>
 	</Grid>
 </mockups:WindowsPhoneChrome>
