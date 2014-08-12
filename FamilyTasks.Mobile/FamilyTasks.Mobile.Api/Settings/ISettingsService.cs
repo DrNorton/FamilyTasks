@@ -6,6 +6,8 @@ namespace FamilyTasks.Mobile.Api.Settings
     {
         Uri BaseUrl { get;  }
         Token Token { get; set; }
+
+        
         
     }
 }

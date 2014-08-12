@@ -3,10 +3,11 @@ using Cirrious.MvvmCross.ViewModels;
 using FamilyTasks.Mobile.Api.Core;
 using FamilyTasks.Mobile.Api.Request;
 using FamilyTasks.Mobile.Core.Interfaces;
+using FamilyTasks.Mobile.Core.ViewModels.Base;
 
 namespace FamilyTasks.Mobile.Core.ViewModels.Auth
 {
-    public class RegisterViewModel: MvxViewModel
+    public class RegisterViewModel : LoadingMvxViewModel
     {
         private readonly IApiManager _apiManager;
         private readonly IMessageProvider _messageProvider;
@@ -31,6 +32,7 @@ namespace FamilyTasks.Mobile.Core.ViewModels.Auth
 
         private async void Register()
         {
+            Wait(true);
             var result = await
                     _apiManager.Register(new RegistrationRequest()
                     {
@@ -38,6 +40,7 @@ namespace FamilyTasks.Mobile.Core.ViewModels.Auth
                         Phone = RegisterInfoModel.Phone,
                         Password = RegisterInfoModel.Password
                     });
+            Wait(false);
             if (result.ErrorCode == 0)
             {
                 ShowViewModel<AuthViewModel>();

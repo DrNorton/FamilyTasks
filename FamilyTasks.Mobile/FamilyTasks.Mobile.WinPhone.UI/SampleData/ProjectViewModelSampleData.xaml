@@ -1,0 +1,146 @@
+<Projects:ProjectViewModel xmlns:Projects="clr-namespace:FamilyTasks.Mobile.Core.ViewModels.Projects;assembly=FamilyTasks.Mobile.Core" xmlns:Models="clr-namespace:FamilyTasks.Mobile.Core.Models;assembly=FamilyTasks.Mobile.Core" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:ViewModels="clr-namespace:Cirrious.MvvmCross.ViewModels;assembly=Cirrious.MvvmCross" IsLoading="True">
+	<Projects:ProjectViewModel.Project>
+		<Models:Project Description="Vestibulum nam maecenas adipiscing" Name="Praesent cras sed aenean" ProjectUrl="Dis est parturient aliquam">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+	</Projects:ProjectViewModel.Project>
+	<Projects:ProjectViewModel.RequestedBy>
+		<ViewModels:MvxRequestedBy AdditionalInfo="Parturient dapibus pulvinar sagittis litora" Type="UserAction"/>
+	</Projects:ProjectViewModel.RequestedBy>
+	<Projects:ProjectViewModel.Tasks>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Duis integer quisque accumsan" Name="Nunc amet">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Ante mauris class nullam" Name="Vestibulum vivamus hac" ProjectUrl="Aptent vestibulum">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Aliquam curabitur adipiscing parturient aliquet" Name="Curae donec">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Auctor etiam congue bibendum" Name="Dictumst fusce cursus vestibulum arcu" ProjectUrl="Phasellus vestibulum dictum">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Lectus lorem eleifend" Name="Diam libero">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Consequat ligula litora" Name="Convallis blandit" ProjectUrl="Eget elit dignissim">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Enim morbi commodo" Name="Facilisi erat">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Leo luctus nulla elementum" Name="Mus proin augue magnis conubia" ProjectUrl="Facilisis nec mattis eros">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Non cubilia dapibus" Name="Per egestas fermentum">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Faucibus euismod nibh sed adipiscing" Name="Feugiat fringilla sem nisi habitasse" ProjectUrl="Mauris sit hendrerit nisl vel">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Habitant gravida nunc iaculis dolor" Name="Mollis himenaeos">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Parturient odio" Name="Inceptos fames montes" ProjectUrl="Nostra nam interdum orci">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Pede lobortis imperdiet vestibulum lacinia" Name="Vestibulum felis ornare ipsum quam">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Quis sed laoreet urna" Name="Malesuada justo" ProjectUrl="Cras dis platea adipiscing">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Primis natoque" Name="Lacus lorem penatibus posuere">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Parturient rutrum" Name="Potenti duis sapien est pretium" ProjectUrl="Nascetur magna massa hac">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Metus semper porttitor morbi" Name="Tincidunt neque leo netus tristique">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Sociis mus ultricies nec nulla" Name="Porta pharetra venenatis vulputate" ProjectUrl="Placerat taciti tellus">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 16:38:36" Description="Nunc vestibulum vestibulum curabitur" Name="Phasellus non pulvinar amet rhoncus">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Adipiscing parturient" Name="Sodales ante" ProjectUrl="Consequat viverra sagittis">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+	</Projects:ProjectViewModel.Tasks>
+    <Projects:ProjectViewModel.Users>
+        <Models:User AvatarUrl="http://dina4kaus.narod.ru/bruce_willis_005.jpg" DisplayName="Дима Иванов" Email="someone@example.com" Phone="(111) 555-0100"/>
+        <Models:User AvatarUrl="http://www.role-game.ru/talk/photoplog/images/2/large/1_04_09_2007_0463726001188900423_dmitrijj_azonchik_dazon.jpg" DisplayName="Андрей Козак" Email="user@adventure-works.com" Phone="(222) 555-0101"/>
+        <Models:User AvatarUrl="http://avotarov.net/picture/avatarki/20/kartinki/39-1.jpg" DisplayName="Алексей Добкин" Email="someone@adventure-works.com" Phone="(333) 555-0102"/>
+        <Models:User AvatarUrl="http://img1.liveinternet.ru/images/attach/c/7/98/701/98701643_large_ava84.jpg" DisplayName="Афродита Анатольевна" Email="user@example.com" Phone="(444) 555-0103"/>
+        <Models:User AvatarUrl="http://freemindforum.net/uploads/000a/a8/84/24926-1.png" DisplayName="Кончита Вурст" Email="user-2@fabrikam.com" Phone="(111) 555-0104"/>
+        <Models:User AvatarUrl="http://www.role-game.ru/talk/photoplog/images/6823/large/1_692e5196a186.jpg" DisplayName="Вова Игнатов" Email="user-3@fabrikam.com" Phone="(222) 555-0105"/>
+        <Models:User AvatarUrl="http://dina4kaus.narod.ru/bruce_willis_005.jpg" DisplayName="Петр Иванов" Email="user-4@fabrikam.com" Phone="(333) 555-0106"/>
+        <Models:User AvatarUrl="http://www.role-game.ru/talk/photoplog/images/21/large/1_1_3887_.jpg" DisplayName="Любовь Анатольевич" Email="user-5@fabrikam.com" Phone="(444) 555-0107"/>
+        <Models:User AvatarUrl="http://newmmorpgames.ru/uploads/posts/2013-01/1357128655_avatar.jpg" DisplayName="Фёдор Достоевский" Email="user-6@fabrikam.com" Phone="(555) 555-0108"/>
+        <Models:User AvatarUrl="http://www.role-game.ru/talk/photoplog/images/6823/large/1_692e5196a186.jpg" DisplayName="Андрей Неформальный" Email="user-7@fabrikam.com" Phone="(111) 555-0109"/>
+    </Projects:ProjectViewModel.Users>
+</Projects:ProjectViewModel>

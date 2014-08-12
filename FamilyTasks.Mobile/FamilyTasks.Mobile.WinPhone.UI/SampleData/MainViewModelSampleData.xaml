@@ -1,0 +1,57 @@
+<ViewModels:MainViewModel xmlns:ViewModels="clr-namespace:FamilyTasks.Mobile.Core.ViewModels;assembly=FamilyTasks.Mobile.Core" xmlns:Models="clr-namespace:FamilyTasks.Mobile.Core.Models;assembly=FamilyTasks.Mobile.Core" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:ViewModels1="clr-namespace:Cirrious.MvvmCross.ViewModels;assembly=Cirrious.MvvmCross">
+	<ViewModels:MainViewModel.MyProjects>
+		<Models:Project Description="Vestibulum maecenas class aliquam aenean" Name="Adipiscing mauris curae nam" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSU4Y8WJAKThLIROQrrJwwRuqW7SqtbGX9AG8QV7CDBbyfR9Rvu">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Accumsan duis bibendum curabitur" Name="Integer phasellus nullam" ProjectUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaJXhJagFubGcYPMXVWYsCmHURB2_mboPCwXXVmH2KYkmRcRWCpw">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Aptent nunc donec" Name="Auctor convallis est" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2e5QY55espDfJ7bw9NX_JJuYNJjvUnOw4dvcYyNVlNzCVMHJ7lw">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Amet etiam" Name="Fusce parturient dignissim ante" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2e5QY55espDfJ7bw9NX_JJuYNJjvUnOw4dvcYyNVlNzCVMHJ7lw">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Cursus lorem facilisis arcu" Name="Diam vivamus" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2e5QY55espDfJ7bw9NX_JJuYNJjvUnOw4dvcYyNVlNzCVMHJ7lw">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Vestibulum habitasse vestibulum dictum lectus" Name="Morbi non aliquam eget" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2e5QY55espDfJ7bw9NX_JJuYNJjvUnOw4dvcYyNVlNzCVMHJ7lw">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Adipiscing facilisi sem" Name="Ligula parturient" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2e5QY55espDfJ7bw9NX_JJuYNJjvUnOw4dvcYyNVlNzCVMHJ7lw">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Blandit commodo himenaeos conubia" Name="Cubilia imperdiet sit dapibus" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2e5QY55espDfJ7bw9NX_JJuYNJjvUnOw4dvcYyNVlNzCVMHJ7lw">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Nam interdum malesuada" Name="Vestibulum penatibus" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfmUYS16wXl_p1w8fSrEdadP5VGkS5mFGsc7dqPGRLCACLGUZD">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+        <Models:Project Description="Erat luctus porttitor" Name="Tincidunt eros magnis egestas lobortis" ProjectUrl="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfmUYS16wXl_p1w8fSrEdadP5VGkS5mFGsc7dqPGRLCACLGUZD">
+			<Models:Project.Id>
+				<System:Int64/>
+			</Models:Project.Id>
+		</Models:Project>
+	</ViewModels:MainViewModel.MyProjects>
+	<ViewModels:MainViewModel.RequestedBy>
+		<ViewModels1:MvxRequestedBy AdditionalInfo="Sed euismod" Type="Other"/>
+	</ViewModels:MainViewModel.RequestedBy>
+</ViewModels:MainViewModel>

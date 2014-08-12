@@ -1,0 +1,19 @@
+﻿<Tasks:TaskViewModel xmlns:Tasks="clr-namespace:FamilyTasks.Mobile.Core.ViewModels.Tasks;assembly=FamilyTasks.Mobile.Core" xmlns:ViewModels="clr-namespace:Cirrious.MvvmCross.ViewModels;assembly=Cirrious.MvvmCross" xmlns:Models="clr-namespace:FamilyTasks.Mobile.Core.Models;assembly=FamilyTasks.Mobile.Core" xmlns:System="clr-namespace:System;assembly=mscorlib" IsLoading="True">
+	<Tasks:TaskViewModel.RequestedBy>
+		<ViewModels:MvxRequestedBy AdditionalInfo="Phasellus ante praesent quisque" Type="UserAction"/>
+	</Tasks:TaskViewModel.RequestedBy>
+	<Tasks:TaskViewModel.Task>
+		<Models:Task CreateDateTime="08/12/2014 14:58:17" Description="Vestibulum aenean phasellus nam cras adipiscing consequat class sed suspendisse maecenas consectetuer parturient vestibulum vestibulum convallis duis praesent aliquam curae mauris dis nullam accumsan bibendum dignissim donec integer condimentum est etiam elementum aptent facilisis nunc pellentesque dictumst auctor sollicitudin hac scelerisque fusce leo quisque adipiscing" Name="Nam curabitur">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.Project>
+				<Models:Project Description="Aliquam integer" Name="Duis class nunc maecenas amet" ProjectUrl="Vestibulum curae">
+					<Models:Project.Id>
+						<System:Int64/>
+					</Models:Project.Id>
+				</Models:Project>
+			</Models:Task.Project>
+		</Models:Task>
+	</Tasks:TaskViewModel.Task>
+</Tasks:TaskViewModel>

@@ -79,6 +79,14 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AddProjectMember.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddTask.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AuthView.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -100,6 +108,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ProfileView.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProjectMembers.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProjectTasks.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -141,6 +157,12 @@
     <Compile Include="AddProject.xaml.cs">
       <DependentUpon>AddProject.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddProjectMember.xaml.cs">
+      <DependentUpon>AddProjectMember.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddTask.xaml.cs">
+      <DependentUpon>AddTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppList.xaml.cs">
       <DependentUpon>AppList.xaml</DependentUpon>
     </Compile>
@@ -164,6 +186,12 @@
     </Compile>
     <Compile Include="ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectMembers.xaml.cs">
+      <DependentUpon>ProjectMembers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectTasks.xaml.cs">
+      <DependentUpon>ProjectTasks.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProjectView.xaml.cs">
       <DependentUpon>ProjectView.xaml</DependentUpon>

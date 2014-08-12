@@ -108,8 +108,20 @@
     		</wp:PanoramaItem>
     			<wp:PanoramaItem Header="Меню">
     			<StackPanel>
-    				<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Участники" VerticalAlignment="Top" FontSize="48" d:LayoutOverrides="VerticalAlignment"  />
-    				<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Задачи" VerticalAlignment="Top" FontSize="48" d:LayoutOverrides="VerticalAlignment"  />
+    				<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Участники" VerticalAlignment="Top" FontSize="48" d:LayoutOverrides="VerticalAlignment"  >
+    					<i:Interaction.Triggers>
+    						<i:EventTrigger EventName="MouseLeftButtonDown">
+    							<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProjectMembers"/>
+    						</i:EventTrigger>
+    					</i:Interaction.Triggers>
+    				</TextBlock>
+    				<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Задачи" VerticalAlignment="Top" FontSize="48" d:LayoutOverrides="VerticalAlignment"  >
+    					<i:Interaction.Triggers>
+    						<i:EventTrigger EventName="MouseLeftButtonDown">
+    							<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProjectTasks"/>
+    						</i:EventTrigger>
+    					</i:Interaction.Triggers>
+    				</TextBlock>
     				<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Настройки" VerticalAlignment="Top" FontSize="48" d:LayoutOverrides="VerticalAlignment" />
     			</StackPanel>
     		</wp:PanoramaItem>

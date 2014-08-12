@@ -24,14 +24,16 @@ namespace FamilyTasks.Api.Controller.Controllers
                     Description =
                         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
                     Id = 1,
-                    Name = "First Project"
+                    Name = "First Project",
+                    ProjectUrl=@"http://l-userpic.livejournal.com/122437763/25587933"
                 },
                 new ProjectsListItemDto
                 {
                     Description =
                         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
                     Id = 2,
-                    Name = "Second Project"
+                    Name = "Second Project",
+                    ProjectUrl=@"http://l-userpic.livejournal.com/122437763/25587933"
                 },
             });
         }
@@ -46,7 +48,8 @@ namespace FamilyTasks.Api.Controller.Controllers
                     Description =
                         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
                     Id = param.Identity,
-                    Name = "First Project"
+                    Name = "First Project",
+                    ProjectUrl=@"http://l-userpic.livejournal.com/122437763/25587933"
                 });
         }
 
@@ -62,14 +65,16 @@ namespace FamilyTasks.Api.Controller.Controllers
                     Description =
                         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
                     Id = 1,
-                    Name = "First Project"
+                    Name = "First Project",
+                    ProjectUrl=@"http://l-userpic.livejournal.com/122437763/25587933"
                 },
                 new ProjectsListItemDto
                 {
                     Description =
                         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
                     Id = 2,
-                    Name = "Second Project"
+                    Name = "Second Project",
+                    ProjectUrl=@"http://l-userpic.livejournal.com/122437763/25587933"
                 },
             });
         }

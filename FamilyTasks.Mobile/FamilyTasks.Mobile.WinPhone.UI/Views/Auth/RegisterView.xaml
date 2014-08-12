@@ -14,32 +14,46 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+    
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="{Binding IsLoading}" IsVisible="True" />
+    </shell:SystemTray.ProgressIndicator>
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="ContentPanel" VerticalAlignment="Center" Grid.Row="1" Margin="12,0,12,0">
+    <Grid  x:Name="LayoutRoot" Background="{StaticResource MainBackgroundBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+          
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="регистрация" Margin="10" HorizontalAlignment="Center"  />
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="Логин:"     />
-            <TextBox binding:TextBinding.UpdateSourceOnChange="True"   Text="{Binding RegisterInfoModel.Login,Mode=TwoWay}"  />
-        </StackPanel>
 
-        <StackPanel Grid.Row="2">
-            <TextBlock Text="Пароль:"     />
-            <PasswordBox  binding:TextBinding.UpdateSourceOnChange="True"   Password="{Binding RegisterInfoModel.Password,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
-        </StackPanel>
 
-        <StackPanel Grid.Row="3">
-            <TextBlock Text="Подтверждение:"     />
-            <PasswordBox  binding:TextBinding.UpdateSourceOnChange="True"   Password="{Binding RegisterInfoModel.ConfirmPassword,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
-        </StackPanel>
-        <Button Command="{Binding RegisterCommand}"   Grid.Row="4" Content="войти" HorizontalAlignment="Left" Width="200"/>
+
+        <ScrollViewer VerticalAlignment="Center" Grid.Row="1">
+        <Grid x:Name="ContentPanel"  Background="{StaticResource MainBackgroundBrush}"  Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Style="{StaticResource TextBlockTitle1Style}" Text="регистрация" Margin="0,0,0,30" HorizontalAlignment="Center"  />
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Телефон:" Style="{StaticResource TextBlockNormalStyle}"    />
+                <TextBox KeyUp="Phone_KeyUp" TabIndex="0" Style="{StaticResource PhoneBoxNormalStyle}" binding:TextBinding.UpdateSourceOnChange="True"   x:Name="PhoneBox" Text="{Binding RegisterInfoModel.Phone,Mode=TwoWay}"  />
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <TextBlock Style="{StaticResource TextBlockNormalStyle}" Text="Пароль:"     />
+                <PasswordBox TabIndex="1" Style="{StaticResource PasswordBoxNormalStyle}" binding:TextBinding.UpdateSourceOnChange="True"  x:Name="PasswordBox" Password="{Binding RegisterInfoModel.Password,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
+            </StackPanel>
+            <StackPanel Grid.Row="3">
+                <TextBlock Style="{StaticResource TextBlockNormalStyle}" Text="Подтверждение:"     />
+                <PasswordBox TabIndex="1" Style="{StaticResource PasswordBoxNormalStyle}" binding:TextBinding.UpdateSourceOnChange="True"  x:Name="PasswordConfirmBox" Password="{Binding RegisterInfoModel.ConfirmPassword,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
+            </StackPanel>
+            <Button Style="{StaticResource StandartButton}" Command="{Binding RegisterCommand}"  Grid.Row="4" Content="регистрация"  Width="200" Margin="10,0,0,0"/>
+        </Grid>
+        </ScrollViewer>
+
     </Grid>
-
 </views:MvxPhonePage>

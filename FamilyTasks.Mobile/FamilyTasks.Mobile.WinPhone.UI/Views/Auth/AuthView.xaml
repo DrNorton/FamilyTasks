@@ -9,29 +9,39 @@
     xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"
     xmlns:binding="clr-namespace:Coding4Fun.Toolkit.Controls.Binding;assembly=Coding4Fun.Toolkit.Controls"
     xmlns:bindableApplicationBar="clr-namespace:BindableApplicationBar;assembly=BindableApplicationBar"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:appBarUtils="clr-namespace:AppBarUtils;assembly=AppBarUtils"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton  Text="регистрация"  IconUri="/Content/Icons/person.png" />
+            <shell:ApplicationBarIconButton Text="забыли пароль?"  IconUri="/Content/Icons/help.png" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+    
+    <i:Interaction.Behaviors>
+        <appBarUtils:AppBarItemCommand Id="регистрация" Text="регистрация"  Command="{Binding NavigateToRegisterCommand}"/>
+        <appBarUtils:AppBarItemCommand Id="забыли пароль?" Text="забыли пароль?"  Command="{Binding NavigateToRecoveryPasswordCommand}"/>
+    </i:Interaction.Behaviors>
 
     <!--LayoutRooMvxPhonePaget is the root grid where all page content is placed-->
     <shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="{Binding IsLoading,Mode=TwoWay}" IsVisible="True" />
     </shell:SystemTray.ProgressIndicator>
 
-    <bindableApplicationBar:Bindable.ApplicationBar>
-            <bindableApplicationBar:BindableApplicationBar>
-                <bindableApplicationBar:BindableApplicationBarButton IconUri="/FamilyTasks.Mobile.Core;Component/Content/Icons/person.png" Command="{Binding NavigateToRegisterCommand}"/>
-            </bindableApplicationBar:BindableApplicationBar>
-        </bindableApplicationBar:Bindable.ApplicationBar>
 
-   
+
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" >
+    <Grid  x:Name="LayoutRoot" Background="{StaticResource MainBackgroundBrush}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -39,26 +49,26 @@
 
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" VerticalAlignment="Center" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Background="{StaticResource MainBackgroundBrush}" VerticalAlignment="Center" Grid.Row="1" Margin="12,0,12,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="авторизация" Margin="10" HorizontalAlignment="Center"  />
+            <TextBlock Grid.Row="0" Style="{StaticResource TextBlockTitle1Style}" Text="авторизация" Margin="0,0,0,30" HorizontalAlignment="Center"  />
             <StackPanel Grid.Row="1">
-                <TextBlock Text="Логин:"     />
-                <TextBox binding:TextBinding.UpdateSourceOnChange="True"   x:Name="LoginBox" Text="{Binding Login,Mode=TwoWay}"  />
+                <TextBlock Text="Телефон:" Style="{StaticResource TextBlockNormalStyle}"    />
+                <TextBox KeyUp="Phone_KeyUp"  TabIndex="0" binding:TextBinding.UpdateSourceOnChange="True"   x:Name="LoginBox" Text="{Binding Login,Mode=TwoWay}" Style="{StaticResource PhoneBoxNormalStyle}"  />
             </StackPanel>
 
             <StackPanel Grid.Row="2">
-                <TextBlock Text="Пароль:"     />
-                <PasswordBox  binding:TextBinding.UpdateSourceOnChange="True"  x:Name="PasswordBox" Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
+                <TextBlock Style="{StaticResource TextBlockNormalStyle}" Text="Пароль:"     />
+                <PasswordBox TabIndex="1" Style="{StaticResource PasswordBoxNormalStyle}" binding:TextBinding.UpdateSourceOnChange="True"  x:Name="PasswordBox" Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
             </StackPanel>
-            <Button Command="{Binding AuthCommand}"  Grid.Row="3" Content="войти" HorizontalAlignment="Left" Width="200"/>
+            <Button Style="{StaticResource StandartButton}" Command="{Binding AuthCommand}"  Grid.Row="3" Content="войти" HorizontalAlignment="Left" Width="200" Margin="10,0,0,0"/>
         </Grid>
-     
+
     </Grid>
 
 </views:MvxPhonePage>

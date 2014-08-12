@@ -3,10 +3,11 @@ using Cirrious.MvvmCross.ViewModels;
 using FamilyTasks.Mobile.Api.Core;
 using FamilyTasks.Mobile.Api.Request;
 using FamilyTasks.Mobile.Core.Interfaces;
+using FamilyTasks.Mobile.Core.ViewModels.Base;
 
 namespace FamilyTasks.Mobile.Core.ViewModels.Auth
 {
-    public class AuthViewModel: MvxViewModel
+    public class AuthViewModel : LoadingMvxViewModel
     {
         private readonly IApiManager _apiManager;
         private readonly IMessageProvider _messageProvider;
@@ -29,6 +30,23 @@ namespace FamilyTasks.Mobile.Core.ViewModels.Auth
         {
             ShowViewModel<RegisterViewModel>();
         }
+
+        private MvxCommand _navigateToRecoveryPasswordCommand;
+
+        public ICommand NavigateToRecoveryPasswordCommand
+        {
+            get
+            {
+                _navigateToRecoveryPasswordCommand = _navigateToRecoveryPasswordCommand ?? new MvxCommand(DoNavigateToRecoveryPasswordCommand);
+                return _navigateToRecoveryPasswordCommand;
+            }
+        }
+
+        private void DoNavigateToRecoveryPasswordCommand()
+        {
+            ShowViewModel<RecoveryViewModel>();
+        }
+
 
      
 
@@ -73,7 +91,9 @@ namespace FamilyTasks.Mobile.Core.ViewModels.Auth
 
         private async void Auth()
         {
+            Wait(true);
             var result=await _apiManager.Autorizate(new AutorizationRequest(Login, Password));
+            Wait(false);
             if (result.ErrorCode == 0)
             {
                 ShowViewModel<MainViewModel>();

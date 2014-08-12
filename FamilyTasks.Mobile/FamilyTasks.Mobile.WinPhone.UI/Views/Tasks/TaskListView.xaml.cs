@@ -9,11 +9,11 @@ using Cirrious.MvvmCross.WindowsPhone.Views;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace FamilyTasks.Mobile.WinPhone.UI.Views
+namespace FamilyTasks.Mobile.WinPhone.UI.Views.Tasks
 {
-    public partial class MyProjectListView : MvxPhonePage
+    public partial class TaskListView : MvxPhonePage
     {
-        public MyProjectListView()
+        public TaskListView()
         {
             InitializeComponent();
         }

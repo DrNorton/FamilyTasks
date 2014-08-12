@@ -22,8 +22,8 @@
       <FileName>Home.xaml</FileName>
       <Annotations />
       <Position>
-        <X>310</X>
-        <Y>60</Y>
+        <X>342</X>
+        <Y>234</Y>
       </Position>
       <VisualTag>5</VisualTag>
     </Screen>
@@ -34,8 +34,8 @@
       <FileName>AppList.xaml</FileName>
       <Annotations />
       <Position>
-        <X>480</X>
-        <Y>120</Y>
+        <X>741</X>
+        <Y>240</Y>
       </Position>
       <VisualTag>5</VisualTag>
     </Screen>
@@ -46,8 +46,8 @@
       <FileName>Search.xaml</FileName>
       <Annotations />
       <Position>
-        <X>160</X>
-        <Y>120</Y>
+        <X>61</X>
+        <Y>255</Y>
       </Position>
       <VisualTag>5</VisualTag>
     </Screen>
@@ -58,8 +58,8 @@
       <FileName>AuthView.xaml</FileName>
       <Annotations />
       <Position>
-        <X>86</X>
-        <Y>2</Y>
+        <X>-136</X>
+        <Y>76</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -70,8 +70,8 @@
       <FileName>RecoveryView.xaml</FileName>
       <Annotations />
       <Position>
-        <X>-104</X>
-        <Y>7</Y>
+        <X>-278</X>
+        <Y>67</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -82,8 +82,8 @@
       <FileName>Register.xaml</FileName>
       <Annotations />
       <Position>
-        <X>-53</X>
-        <Y>-56</Y>
+        <X>-244</X>
+        <Y>22</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -94,8 +94,8 @@
       <FileName>GetMyTasks.xaml</FileName>
       <Annotations />
       <Position>
-        <X>714</X>
-        <Y>-63</Y>
+        <X>853</X>
+        <Y>-97</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -106,8 +106,8 @@
       <FileName>ProfileView.xaml</FileName>
       <Annotations />
       <Position>
-        <X>-124</X>
-        <Y>104</Y>
+        <X>-252</X>
+        <Y>125</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -118,8 +118,8 @@
       <FileName>EditView.xaml</FileName>
       <Annotations />
       <Position>
-        <X>604</X>
-        <Y>32</Y>
+        <X>-341</X>
+        <Y>210</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -130,8 +130,8 @@
       <FileName>AddFriendView.xaml</FileName>
       <Annotations />
       <Position>
-        <X>604</X>
-        <Y>72</Y>
+        <X>928</X>
+        <Y>99</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -142,8 +142,8 @@
       <FileName>MyProjectsList.xaml</FileName>
       <Annotations />
       <Position>
-        <X>267</X>
-        <Y>-64</Y>
+        <X>-155</X>
+        <Y>-292</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -154,8 +154,8 @@
       <FileName>AddProject.xaml</FileName>
       <Annotations />
       <Position>
-        <X>757</X>
-        <Y>105</Y>
+        <X>-126</X>
+        <Y>-480</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -166,8 +166,8 @@
       <FileName>ProjectView.xaml</FileName>
       <Annotations />
       <Position>
-        <X>499</X>
-        <Y>-83</Y>
+        <X>-179</X>
+        <Y>-433</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -178,8 +178,56 @@
       <FileName>FriendsView.xaml</FileName>
       <Annotations />
       <Position>
-        <X>714</X>
-        <Y>-23</Y>
+        <X>918</X>
+        <Y>21</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>FamilyTasksPrototypeScreens.ProjectMembers</ClassName>
+      <DisplayName>ProjectMembers</DisplayName>
+      <FileName>ProjectMembers.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>98</X>
+        <Y>-502</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>FamilyTasksPrototypeScreens.AddProjectMember</ClassName>
+      <DisplayName>AddProjectMember</DisplayName>
+      <FileName>AddProjectMember.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>299</X>
+        <Y>-504</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>FamilyTasksPrototypeScreens.ProjectTasks</ClassName>
+      <DisplayName>ProjectTasks</DisplayName>
+      <FileName>ProjectTasks.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>-328</X>
+        <Y>-340</Y>
+      </Position>
+      <VisualTag>0</VisualTag>
+    </Screen>
+    <Screen>
+      <Type>Navigation</Type>
+      <ClassName>FamilyTasksPrototypeScreens.AddTask</ClassName>
+      <DisplayName>AddTask</DisplayName>
+      <FileName>AddTask.xaml</FileName>
+      <Annotations />
+      <Position>
+        <X>-300</X>
+        <Y>-469</Y>
       </Position>
       <VisualTag>0</VisualTag>
     </Screen>
@@ -556,6 +604,132 @@
       <TransitionType>Fade</TransitionType>
       <VisualTag>0</VisualTag>
     </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectMembers</Source>
+      <Target>FamilyTasksPrototypeScreens.AddFriendView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectMembers</Source>
+      <Target>FamilyTasksPrototypeScreens.Home</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectMembers</Source>
+      <Target>FamilyTasksPrototypeScreens.Search</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.AddProjectMember</Source>
+      <Target>FamilyTasksPrototypeScreens.AddFriendView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.AddProjectMember</Source>
+      <Target>FamilyTasksPrototypeScreens.Home</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.AddProjectMember</Source>
+      <Target>FamilyTasksPrototypeScreens.Search</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectMembers</Source>
+      <Target>FamilyTasksPrototypeScreens.AddProjectMember</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectView</Source>
+      <Target>FamilyTasksPrototypeScreens.ProjectMembers</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectTasks</Source>
+      <Target>FamilyTasksPrototypeScreens.ProjectView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectTasks</Source>
+      <Target>FamilyTasksPrototypeScreens.AddProject</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectTasks</Source>
+      <Target>FamilyTasksPrototypeScreens.Home</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectTasks</Source>
+      <Target>FamilyTasksPrototypeScreens.Search</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectView</Source>
+      <Target>FamilyTasksPrototypeScreens.ProjectTasks</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.AddTask</Source>
+      <Target>FamilyTasksPrototypeScreens.Home</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.AddTask</Source>
+      <Target>FamilyTasksPrototypeScreens.Search</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.ProjectTasks</Source>
+      <Target>FamilyTasksPrototypeScreens.AddTask</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.Screen_1</Source>
+      <Target>FamilyTasksPrototypeScreens.ProjectView</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
+    <Connection>
+      <Source>FamilyTasksPrototypeScreens.Screen_1</Source>
+      <Target>FamilyTasksPrototypeScreens.AddProject</Target>
+      <Type>Navigation</Type>
+      <TransitionType>Fade</TransitionType>
+      <VisualTag>0</VisualTag>
+    </Connection>
   </Connections>
   <PrototypeRevision>0</PrototypeRevision>
   <BrandingText>Microsoft SketchFlow Prototype</BrandingText>
@@ -601,10 +775,10 @@
     </VisualTag>
   </VisualTags>
   <ViewState>
-    <Zoom>0.75</Zoom>
+    <Zoom>0.66666666666666663</Zoom>
     <Center>
-      <X>638.78922558922545</X>
-      <Y>48.962833092833094</Y>
+      <X>364.80787878787834</X>
+      <Y>-73.612767231805691</Y>
     </Center>
   </ViewState>
 </Data>

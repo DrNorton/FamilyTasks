@@ -1,0 +1,87 @@
+﻿<Tasks:TaskListViewModel xmlns:Tasks="clr-namespace:FamilyTasks.Mobile.Core.ViewModels.Tasks;assembly=FamilyTasks.Mobile.Core" xmlns:ViewModels="clr-namespace:Cirrious.MvvmCross.ViewModels;assembly=Cirrious.MvvmCross" xmlns:Models="clr-namespace:FamilyTasks.Mobile.Core.Models;assembly=FamilyTasks.Mobile.Core" xmlns:System="clr-namespace:System;assembly=mscorlib" IsLoading="True">
+	<Tasks:TaskListViewModel.RequestedBy>
+		<ViewModels:MvxRequestedBy AdditionalInfo="Blandit libero" Type="AutomatedService"/>
+	</Tasks:TaskListViewModel.RequestedBy>
+	<Tasks:TaskListViewModel.Tasks>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Aliquam curabitur nam phasellus" Name="Cras aenean sed vestibulum class" Name="Aaberg, Jesper" Description="Etiam hac elementum leo pellentesque praesent accumsan">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Dis duis curae" Name="Adipiscing donec nunc amet" Name="Adams, Ellen" Description="Ullamcorper bibendum mus facilisis suspendisse condimentum sollicitudin vestibulum pellentesque consectetuer pellentesque sollicitudin auctor">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Etiam mauris" Name="Est consequat maecenas" Name="Adams, Terry" Description="Nec quisque fermentum nunc vivamus pellentesque adipiscing fringilla congue amet consectetuer parturient non">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Hac ante parturient nullam leo" Name="Vestibulum aptent convallis fusce dignissim" Name="Adams, Terry" Description="Vestibulum aliquam aliquet cursus fusce vestibulum ante habitasse blandit dictumst hendrerit adipiscing arcu pellentesque">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Auctor praesent congue" Name="Vestibulum accumsan elementum facilisis" Name="Penor, Lori" Description="Parturient diam dictum sollicitudin eget per scelerisque ullamcorper">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Mus lorem morbi arcu" Name="Nulla diam fermentum" Name="Pfeiffer, Michael" Description="Vestibulum lectus eleifend himenaeos sed suspendisse pellentesque facilisi libero sem">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Bibendum fringilla proin habitasse" Name="Augue eget cursus dictumst" Name="Philips, Carol" Description="Consectetuer condimentum elit faucibus ligula imperdiet vestibulum lorem scelerisque malesuada habitant pellentesque sollicitudin">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Adipiscing nec integer quisque non" Name="Dictum per vivamus eleifend" Name="Poe, Toni" Description="Commodo litora pellentesque consectetuer conubia pellentesque morbi adipiscing penatibus enim sollicitudin porttitor sit">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Elit sed" Name="Dolor facilisi" Name="Hicks, Cassie" Description="Parturient inceptos tincidunt luctus vestibulum pellentesque erat tristique vestibulum nulla ullamcorper">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+		<Models:Task CreateDateTime="08/12/2014 13:07:19" Description="Faucibus aliquam" Name="Lectus aliquet fames" Name="Argentiero, Luca" Description="Eros adipiscing ultricies proin suspendisse nibh augue dolor condimentum magnis">
+			<Models:Task.Id>
+				<System:Int64/>
+			</Models:Task.Id>
+			<Models:Task.ProjectId>
+				<System:Int64/>
+			</Models:Task.ProjectId>
+		</Models:Task>
+	</Tasks:TaskListViewModel.Tasks>
+</Tasks:TaskListViewModel>

@@ -103,7 +103,13 @@
 				<wp:PanoramaItem Header="Меню">
     			<Grid>
     				<StackPanel>
-    				 		<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Мои задачи" VerticalAlignment="Top" FontSize="48" />
+    				 		<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Мои задачи" VerticalAlignment="Top" FontSize="48" >
+    				 			<i:Interaction.Triggers>
+    				 				<i:EventTrigger EventName="MouseLeftButtonDown">
+    				 					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.GetMyTasks"/>
+    				 				</i:EventTrigger>
+    				 			</i:Interaction.Triggers>
+    				 		</TextBlock>
 							<TextBlock HorizontalAlignment="Left"   Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Мои проекты" VerticalAlignment="Top" FontSize="48" >
 								<i:Interaction.Triggers>
 									<i:EventTrigger EventName="MouseLeftButtonDown">
@@ -124,6 +130,11 @@
     		</wp:PanoramaItem>
 			<wp:PanoramaItem Header="Проекты">
     			<Grid>
+    				<i:Interaction.Triggers>
+    					<i:EventTrigger EventName="MouseLeftButtonDown">
+    						<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.AddProject"/>
+    					</i:EventTrigger>
+    				</i:Interaction.Triggers>
     				<Grid.RowDefinitions>
     					<RowDefinition Height="auto"/>
 						<RowDefinition Height="auto"/>	
@@ -149,6 +160,11 @@
     	</Grid>
 		
 		<Grid HorizontalAlignment="Left" Margin="10" Grid.Column="1" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonDown">
+					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProjectView"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
     	
     		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
     			Background="{StaticResource Accent-Sketch}"
@@ -163,6 +179,11 @@
     	</Grid>
 		
 		<Grid HorizontalAlignment="Left" Margin="10" Grid.Column="0" Grid.Row="1" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonDown">
+					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProjectView"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
     	
     		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
     			Background="{StaticResource Accent-Sketch}"
@@ -176,6 +197,11 @@
     			VerticalAlignment="Bottom" />
     	</Grid>
 		<Grid HorizontalAlignment="Left" Margin="10" Grid.Column="1" Grid.Row="1" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonDown">
+					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProjectView"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
     	
     		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
     			Background="{StaticResource Accent-Sketch}"
@@ -189,6 +215,11 @@
     			VerticalAlignment="Bottom" />
     	</Grid>
 		<Grid HorizontalAlignment="Left" Margin="10" Grid.Column="0" Grid.Row="2" Width="173" Height="173" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonDown">
+					<pi:NavigateToScreenAction TargetScreen="FamilyTasksPrototypeScreens.ProjectView"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
     	
     		<pc:SketchRectangleSL BorderBrush="{StaticResource Accent-Sketch}"
     			Background="{StaticResource Accent-Sketch}"
