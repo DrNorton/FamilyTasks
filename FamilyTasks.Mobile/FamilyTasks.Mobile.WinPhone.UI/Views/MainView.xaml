@@ -9,6 +9,7 @@
     xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:commands="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Commands;assembly=Cirrious.MvvmCross.WindowsPhone"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -26,10 +27,20 @@
                     <ListBox.Items>
                         <ListBoxItem Style="{StaticResource MenuItemStyle}"  FontSize="30">
                             Мои задачи
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Tap">
+                                    <commands:MvxEventToCommand Command="{Binding NavigateToMyEventsCommand}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </ListBoxItem>
 
                         <ListBoxItem Style="{StaticResource MenuItemStyle}"  FontSize="30">
                             Мои проекты
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Tap">
+                                    <commands:MvxEventToCommand Command="{Binding NavigateToMyProjectsCommand}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </ListBoxItem>
 
                         <ListBoxItem Style="{StaticResource MenuItemStyle}"  FontSize="30">

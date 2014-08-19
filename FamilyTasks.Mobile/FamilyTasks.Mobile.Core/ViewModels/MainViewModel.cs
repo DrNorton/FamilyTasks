@@ -8,6 +8,7 @@ using FamilyTasks.Mobile.Api.Response;
 using FamilyTasks.Mobile.Core.Models;
 using FamilyTasks.Mobile.Core.ViewModels.Auth;
 using FamilyTasks.Mobile.Core.ViewModels.Projects;
+using FamilyTasks.Mobile.Core.ViewModels.Tasks;
 
 namespace FamilyTasks.Mobile.Core.ViewModels
 {
@@ -15,8 +16,38 @@ namespace FamilyTasks.Mobile.Core.ViewModels
     {
         private readonly IApiManager _apiManager;
         private MvxCommand _navigateToMyProjectsCommand;
-        private ObservableCollection<Project> _myProjects; 
-    
+        private MvxCommand _navigateToMyProjectsCommandCommand;
+        private ObservableCollection<Project> _myProjects;
+        private MvxCommand _navigateToMyEventsCommand;
+
+        public ICommand NavigateToMyEventsCommand
+        {
+            get
+            {
+                _navigateToMyEventsCommand = _navigateToMyEventsCommand ?? new MvxCommand(DoNavigateToMyEventsCommand);
+                return _navigateToMyEventsCommand;
+            }
+        }
+
+        public ICommand NavigateToMyProjectsCommandCommand
+        {
+            get
+            {
+                _navigateToMyProjectsCommandCommand = _navigateToMyProjectsCommandCommand ?? new MvxCommand(DoNavigateToMyProjectsCommandCommand);
+                return _navigateToMyProjectsCommandCommand;
+            }
+        }
+
+        private void DoNavigateToMyEventsCommand()
+        {
+            ShowViewModel<TaskListViewModel>();
+        }
+
+        private void DoNavigateToMyProjectsCommandCommand()
+        {
+            ShowViewModel<ProjectListViewModel>();
+        }
+
 
 
         public ICommand NavigateToMyProjectCommand
@@ -54,8 +85,12 @@ namespace FamilyTasks.Mobile.Core.ViewModels
             {
                 ShowViewModel<AuthViewModel>();
             }
-            GetProjectList();
-            base.Start();
+            else
+            {
+                GetProjectList();
+                base.Start();
+            }
+          
         }
 
         private async void GetProjectList()

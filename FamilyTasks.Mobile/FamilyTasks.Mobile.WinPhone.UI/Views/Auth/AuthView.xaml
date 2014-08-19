@@ -1,5 +1,4 @@
 ﻿<views:MvxPhonePage
-    x:Class="FamilyTasks.Mobile.WinPhone.UI.Views.Auth.AuthView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -11,64 +10,73 @@
     xmlns:bindableApplicationBar="clr-namespace:BindableApplicationBar;assembly=BindableApplicationBar"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:appBarUtils="clr-namespace:AppBarUtils;assembly=AppBarUtils"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
+    xmlns:Tasks="clr-namespace:FamilyTasks.Mobile.Core.ViewModels.Tasks;assembly=FamilyTasks.Mobile.Core"
+    x:Class="FamilyTasks.Mobile.WinPhone.UI.Views.Auth.AuthView"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
     
-    <phone:PhoneApplicationPage.ApplicationBar>
+	<views:MvxPhonePage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</views:MvxPhonePage.FontFamily>
+	<views:MvxPhonePage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</views:MvxPhonePage.FontSize>
+	<views:MvxPhonePage.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</views:MvxPhonePage.Foreground>
+    
+    <views:MvxPhonePage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton  Text="регистрация"  IconUri="/Content/Icons/person.png" />
             <shell:ApplicationBarIconButton Text="забыли пароль?"  IconUri="/Content/Icons/help.png" />
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+    </views:MvxPhonePage.ApplicationBar>
     
     <i:Interaction.Behaviors>
-        <appBarUtils:AppBarItemCommand Id="регистрация" Text="регистрация"  Command="{Binding NavigateToRegisterCommand}"/>
-        <appBarUtils:AppBarItemCommand Id="забыли пароль?" Text="забыли пароль?"  Command="{Binding NavigateToRecoveryPasswordCommand}"/>
+    	<appBarUtils:AppBarItemCommand Id="регистрация" Text="регистрация"  Command="{Binding NavigateToRegisterCommand}"/>
+    	<appBarUtils:AppBarItemCommand Id="забыли пароль?" Text="забыли пароль?"  Command="{Binding NavigateToRecoveryPasswordCommand}"/>
     </i:Interaction.Behaviors>
 
     <!--LayoutRooMvxPhonePaget is the root grid where all page content is placed-->
     <shell:SystemTray.ProgressIndicator>
-        <shell:ProgressIndicator IsIndeterminate="{Binding IsLoading,Mode=TwoWay}" IsVisible="True" />
+        <shell:ProgressIndicator IsIndeterminate="{Binding IsLoading, Mode=TwoWay}" IsVisible="True" />
     </shell:SystemTray.ProgressIndicator>
 
 
 
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid  x:Name="LayoutRoot" Background="{StaticResource MainBackgroundBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+	<Grid  x:Name="LayoutRoot" Background="{StaticResource MainBackgroundBrush}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
 
 
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Background="{StaticResource MainBackgroundBrush}" VerticalAlignment="Center" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Style="{StaticResource TextBlockTitle1Style}" Text="авторизация" Margin="0,0,0,30" HorizontalAlignment="Center"  />
-            <StackPanel Grid.Row="1">
-                <TextBlock Text="Телефон:" Style="{StaticResource TextBlockNormalStyle}"    />
-                <TextBox KeyUp="Phone_KeyUp"  TabIndex="0" binding:TextBinding.UpdateSourceOnChange="True"   x:Name="LoginBox" Text="{Binding Login,Mode=TwoWay}" Style="{StaticResource PhoneBoxNormalStyle}"  />
-            </StackPanel>
+		<Grid x:Name="ContentPanel" Background="{StaticResource MainBackgroundBrush}" VerticalAlignment="Center" Grid.Row="1" Margin="12,0,12,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<TextBlock Grid.Row="0" Style="{StaticResource TextBlockTitle1Style}" Text="авторизация" Margin="0,0,0,30" HorizontalAlignment="Center"  />
+			<StackPanel Grid.Row="1">
+				<TextBlock Text="Телефон:" Style="{StaticResource TextBlockNormalStyle}"    />
+				<TextBox KeyUp="Phone_KeyUp"  TabIndex="0" binding:TextBinding.UpdateSourceOnChange="True"   x:Name="LoginBox" Text="{Binding Login, Mode=TwoWay}" Style="{StaticResource PhoneBoxNormalStyle}"  />
+			</StackPanel>
 
-            <StackPanel Grid.Row="2">
-                <TextBlock Style="{StaticResource TextBlockNormalStyle}" Text="Пароль:"     />
-                <PasswordBox TabIndex="1" Style="{StaticResource PasswordBoxNormalStyle}" binding:TextBinding.UpdateSourceOnChange="True"  x:Name="PasswordBox" Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=Explicit}"   />
-            </StackPanel>
-            <Button Style="{StaticResource StandartButton}" Command="{Binding AuthCommand}"  Grid.Row="3" Content="войти" HorizontalAlignment="Left" Width="200" Margin="10,0,0,0"/>
-        </Grid>
+			<StackPanel Grid.Row="2">
+				<TextBlock Style="{StaticResource TextBlockNormalStyle}" Text="Пароль:"     />
+				<PasswordBox TabIndex="1" Style="{StaticResource PasswordBoxNormalStyle}" binding:TextBinding.UpdateSourceOnChange="True"  x:Name="PasswordBox" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=Explicit}"   />
+			</StackPanel>
+			<Button Style="{StaticResource StandartButton}" Command="{Binding AuthCommand}"  Grid.Row="3" Content="войти" HorizontalAlignment="Left" Width="200" Margin="10,0,0,0"/>
+		</Grid>
 
-    </Grid>
+	</Grid>
 
 </views:MvxPhonePage>

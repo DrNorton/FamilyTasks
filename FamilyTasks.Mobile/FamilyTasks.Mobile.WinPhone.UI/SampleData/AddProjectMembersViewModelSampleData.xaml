@@ -1,12 +1,12 @@
-<Projects:AddProjectMembersViewModel xmlns:Projects="clr-namespace:FamilyTasks.Mobile.Core.ViewModels.Projects;assembly=FamilyTasks.Mobile.Core" xmlns:Models="clr-namespace:FamilyTasks.Mobile.Core.Models;assembly=FamilyTasks.Mobile.Core" xmlns:ViewModels="clr-namespace:Cirrious.MvvmCross.ViewModels;assembly=Cirrious.MvvmCross" IsLoading="True">
+ï»¿<Projects:AddProjectMembersViewModel xmlns:Projects="clr-namespace:FamilyTasks.Mobile.Core.ViewModels.Projects;assembly=FamilyTasks.Mobile.Core" xmlns:Models="clr-namespace:FamilyTasks.Mobile.Core.Models;assembly=FamilyTasks.Mobile.Core" xmlns:ViewModels="clr-namespace:Cirrious.MvvmCross.ViewModels;assembly=Cirrious.MvvmCross" IsLoading="True">
 	<Projects:AddProjectMembersViewModel.FriendsList>
-        <Models:User AvatarUrl="http://dina4kaus.narod.ru/bruce_willis_005.jpg" DisplayName="Äèìà Èâàíîâ" Email="someone@example.com" Phone="(111) 555-0100"/>
-        <Models:User AvatarUrl="http://www.role-game.ru/talk/photoplog/images/2/large/1_04_09_2007_0463726001188900423_dmitrijj_azonchik_dazon.jpg" DisplayName="Àíäðåé Êîçàê" Email="user@adventure-works.com" Phone="(222) 555-0101"/>
-        <Models:User AvatarUrl="http://avotarov.net/picture/avatarki/20/kartinki/39-1.jpg" DisplayName="Àëåêñåé Äîáêèí" Email="someone@adventure-works.com" Phone="(333) 555-0102"/>
-        <Models:User AvatarUrl="http://img1.liveinternet.ru/images/attach/c/7/98/701/98701643_large_ava84.jpg" DisplayName="Àôðîäèòà Àíàòîëüåâíà" Email="user@example.com" Phone="(444) 555-0103"/>
-        <Models:User AvatarUrl="http://freemindforum.net/uploads/000a/a8/84/24926-1.png" DisplayName="Êîí÷èòà Âóðñò" Email="user-2@fabrikam.com" Phone="(111) 555-0104"/>
-        <Models:User AvatarUrl="http://www.role-game.ru/talk/photoplog/images/6823/large/1_692e5196a186.jpg" DisplayName="Âîâà Èãíàòîâ" Email="user-3@fabrikam.com" Phone="(222) 555-0105"/>
-        <Models:User AvatarUrl="http://dina4kaus.narod.ru/bruce_willis_005.jpg" DisplayName="Ïåòð Èâàíîâ" Email="user-4@fabrikam.com" Phone="(333) 555-0106"/>
+        <Models:User AvatarUrl="http://dina4kaus.narod.ru/bruce_willis_005.jpg" DisplayName="Ð”Ð¸Ð¼Ð° Ð˜Ð²Ð°Ð½Ð¾Ð²" Email="someone@example.com" Phone="(111) 555-0100"/>
+        <Models:User AvatarUrl="http://www.role-game.ru/talk/photoplog/images/2/large/1_04_09_2007_0463726001188900423_dmitrijj_azonchik_dazon.jpg" DisplayName="ÐÐ½Ð´Ñ€ÐµÐ¹ ÐšÐ¾Ð·Ð°Ðº" Email="user@adventure-works.com" Phone="(222) 555-0101"/>
+        <Models:User AvatarUrl="http://avotarov.net/picture/avatarki/20/kartinki/39-1.jpg" DisplayName="ÐÐ»ÐµÐºÑÐµÐ¹ Ð”Ð¾Ð±ÐºÐ¸Ð½" Email="someone@adventure-works.com" Phone="(333) 555-0102"/>
+        <Models:User AvatarUrl="http://img1.liveinternet.ru/images/attach/c/7/98/701/98701643_large_ava84.jpg" DisplayName="ÐÑ„Ñ€Ð¾Ð´Ð¸Ñ‚Ð° ÐÐ½Ð°Ñ‚Ð¾Ð»ÑŒÐµÐ²Ð½Ð°" Email="user@example.com" Phone="(444) 555-0103"/>
+        <Models:User AvatarUrl="http://freemindforum.net/uploads/000a/a8/84/24926-1.png" DisplayName="ÐšÐ¾Ð½Ñ‡Ð¸Ñ‚Ð° Ð’ÑƒÑ€ÑÑ‚" Email="user-2@fabrikam.com" Phone="(111) 555-0104"/>
+        <Models:User AvatarUrl="http://www.role-game.ru/talk/photoplog/images/6823/large/1_692e5196a186.jpg" DisplayName="Ð’Ð¾Ð²Ð° Ð˜Ð³Ð½Ð°Ñ‚Ð¾Ð²" Email="user-3@fabrikam.com" Phone="(222) 555-0105"/>
+        <Models:User AvatarUrl="http://dina4kaus.narod.ru/bruce_willis_005.jpg" DisplayName="ÐŸÐµÑ‚Ñ€ Ð˜Ð²Ð°Ð½Ð¾Ð²" Email="user-4@fabrikam.com" Phone="(333) 555-0106"/>
     </Projects:AddProjectMembersViewModel.FriendsList>
 	<Projects:AddProjectMembersViewModel.RequestedBy>
 		<ViewModels:MvxRequestedBy AdditionalInfo="Iaculis nunc lacinia porttitor" Type="UserAction"/>

@@ -25,7 +25,7 @@
     <ValidateXaml>true</ValidateXaml>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>12.0.50429.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -333,14 +333,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="DataStore\DataStore\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FamilyTasks.Mobile.Api\FamilyTasks.Mobile.Api.csproj">
-      <Project>{4848AC4E-02F5-4B45-94F0-EB582E3CD76D}</Project>
+      <Project>{4848ac4e-02f5-4b45-94f0-eb582e3cd76d}</Project>
       <Name>FamilyTasks.Mobile.Api</Name>
     </ProjectReference>
     <ProjectReference Include="..\FamilyTasks.Mobile.Core\FamilyTasks.Mobile.Core.csproj">
-      <Project>{73AF2A36-FBC6-4B9D-B88F-1CB04DC73F95}</Project>
+      <Project>{73af2a36-fbc6-4b9d-b88f-1cb04dc73f95}</Project>
       <Name>FamilyTasks.Mobile.Core</Name>
     </ProjectReference>
   </ItemGroup>
