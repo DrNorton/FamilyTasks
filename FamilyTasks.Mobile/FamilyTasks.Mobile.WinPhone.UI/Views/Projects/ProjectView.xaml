@@ -1,5 +1,5 @@
 ﻿<views:MvxPhonePage
-    x:Class="FamilyTasks.Mobile.WinPhone.UI.ProjectView"
+    x:Class="FamilyTasks.Mobile.WinPhone.UI.Views.Projects.ProjectView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -92,7 +92,7 @@
 										<RowDefinition/>
 										<RowDefinition/>
 									</Grid.RowDefinitions>
-									<TextBlock Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" Text="Выбросить мусор на мусорку"/>
+									<TextBlock Margin="5" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding Name}"/>
 									<controls:TileNotification Content="99" Background="{StaticResource StandartControlLightBrush}" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
 									 <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
 										<Run>Fri</Run>

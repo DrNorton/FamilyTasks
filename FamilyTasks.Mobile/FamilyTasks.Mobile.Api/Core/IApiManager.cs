@@ -16,5 +16,6 @@ namespace FamilyTasks.Mobile.Api.Core
         Task<Response<ProjectResponse>> GetProjectById(long projectId);
         Task<Response<string>> DeleteMyProject(long projectId);
         Task<Response<TaskResponse>> GetTaskById(long taskId);
+        Task<Response<List<ProjectMemberResponse>>> GetProjectMembersByProjectId(long projectId);
     }
 }

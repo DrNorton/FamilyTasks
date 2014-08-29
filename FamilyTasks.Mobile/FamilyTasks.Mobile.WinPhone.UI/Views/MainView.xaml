@@ -51,7 +51,7 @@
             </ListBox>
             </phone:PanoramaItem>
             <phone:PanoramaItem Style="{StaticResource PanoramaItemStyle}" Header="Проекты">
-            <ListBox ItemsSource="{Binding MyProjects}">
+            <ListBox ItemsSource="{Binding MyProjects}" SelectedItem="{Binding SelectedProject,Mode=TwoWay}">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
                             <toolkit:HubTile Style="{StaticResource HubTileStyle}"  Margin="2" Title="{Binding Name}"  Message="{Binding Description,Mode=TwoWay}" Source="{Binding ProjectUrl,Mode=TwoWay}"  />

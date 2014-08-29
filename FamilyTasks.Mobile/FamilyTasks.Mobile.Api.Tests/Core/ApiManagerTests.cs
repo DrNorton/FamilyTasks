@@ -194,6 +194,28 @@ namespace FamilyTasks.Mobile.Api.Core.Tests
                 Assert.AreNotEqual(str.ErrorCode, 0);
             }
         }
+
+        [Test]
+        [TestCase(true)]
+        [TestCase(false)]
+        public async void GeProjectMembersByProjectIdTest(bool isAuth)
+        {
+            var manager = CreateApiManager();
+            if (isAuth)
+            {
+                var result = await manager.Autorizate(new AutorizationRequest() { UserName = "andrew", Password = "SuperPass" });
+            }
+            var str = await manager.GetProjectMembersByProjectId(3);
+            if (isAuth)
+            {
+                Assert.AreEqual(str.ErrorCode, 0);
+                Assert.NotNull(str.Result);
+            }
+            else
+            {
+                Assert.AreNotEqual(str.ErrorCode, 0);
+            }
+        }
       
 
     }

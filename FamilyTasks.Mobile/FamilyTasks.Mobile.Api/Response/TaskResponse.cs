@@ -9,7 +9,11 @@ namespace FamilyTasks.Mobile.Api.Response
     public class TaskResponse
     {
         public long Id { get; set; }
-
         public string Name { get; set; }
+        public string Description { get; set; }
+        public long? EmployeeUserId { get; set; }
+        public long ProjectId { get; set; }
+
+        public DateTime CreateDateTime { get; set; }
     }
 }

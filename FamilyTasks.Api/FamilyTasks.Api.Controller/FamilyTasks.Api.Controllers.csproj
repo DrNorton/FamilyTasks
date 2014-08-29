@@ -80,6 +80,7 @@
     <Compile Include="AuthContext.cs" />
     <Compile Include="Controllers\FriendController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ProjectMembersController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Entities\IdentityModel.cs" />
     <Compile Include="Entities\UserModel.cs" />

@@ -19,6 +19,7 @@ namespace FamilyTasks.Mobile.Core.ViewModels
         private MvxCommand _navigateToMyProjectsCommandCommand;
         private ObservableCollection<Project> _myProjects;
         private MvxCommand _navigateToMyEventsCommand;
+        private Project _selectedProject;
 
         public ICommand NavigateToMyEventsCommand
         {
@@ -69,6 +70,20 @@ namespace FamilyTasks.Mobile.Core.ViewModels
             }
         }
 
+        public Project SelectedProject
+        {
+            get { return _selectedProject; }
+            set
+            {
+                _selectedProject = value;
+                if (value != null)
+                {
+                    NavigateToProjectView(value); 
+                }
+                base.RaisePropertyChanged(()=>SelectedProject);
+            }
+        }
+
         private void DoNavigateToMyProjectCommand()
         {
             ShowViewModel<ProjectListViewModel>();
@@ -101,6 +116,11 @@ namespace FamilyTasks.Mobile.Core.ViewModels
             {
                 MyProjects.Add(new Project(){Description = receivedProject.Description,Id=receivedProject.Id,Name = receivedProject.Name,ProjectUrl = receivedProject.ProjectUrl});
             }
+        }
+
+        public void NavigateToProjectView(Project selectedProject)
+        {
+            ShowViewModel<ProjectViewModel>(new { projectId = selectedProject.Id });
         }
     }
 }

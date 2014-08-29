@@ -18,5 +18,7 @@ namespace FamilyTasks.Dto.Tasks
         public long? EmployeeUserId { get; set; }
 
         public long ProjectId { get; set; }
+
+        public DateTime CreateDateTime { get; set; }
     }
 }

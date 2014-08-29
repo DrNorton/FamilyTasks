@@ -40,10 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Friends\FriendListItemDto.cs" />
+    <Compile Include="Projects\ProjectMemberDto.cs" />
     <Compile Include="Projects\ProjectsListItemDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\TasksListItemDto.cs" />
     <Compile Include="Users\CreateUserDto.cs" />
+    <Compile Include="Users\UserDto.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

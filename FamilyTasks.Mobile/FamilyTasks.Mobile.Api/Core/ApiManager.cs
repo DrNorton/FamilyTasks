@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using FamilyTasks.Mobile.Api.Request;
 using FamilyTasks.Mobile.Api.Request.Project;
+using FamilyTasks.Mobile.Api.Request.ProjectMember;
 using FamilyTasks.Mobile.Api.Request.Task;
 using FamilyTasks.Mobile.Api.Response;
 
@@ -68,6 +69,13 @@ namespace FamilyTasks.Mobile.Api.Core
             return await _requestExecuterService.ExecuteRequest<TaskResponse>(new GetTaskByIdRequest() { Identity = taskId });
         }
 
+        #endregion
+
+        #region Project Members
+        public async Task<Response<List<ProjectMemberResponse>>> GetProjectMembersByProjectId(long projectId)
+        {
+            return await _requestExecuterService.ExecuteRequest<List<ProjectMemberResponse>>(new GetProjectMembers(){Identity = projectId});
+        }
         #endregion
 
     }
